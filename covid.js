@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
- $.getJSON('http://api.covid19india.org/data.json',function(data){
+ $.getJSON('https://api.covid19india.org/data.json',function(data){
      var statewise=data.statewise;
      //get location based
      var totalCases,totalRecovered,totalDeaths,totalActive;
@@ -19,7 +19,7 @@ $(document).ready(function(){
      var currState=location.geoplugin_regionCode;
      var currStateName=location.geoplugin_regionName;
       //district wise info
-      $.getJSON('http://api.covid19india.org/state_district_wise.json',function(distData){
+      $.getJSON('https://api.covid19india.org/state_district_wise.json',function(distData){
             //onsole.log(currState);
             $.each(distData,function(statename,statedata){
                 //console.log(statename.toLowerCase());
