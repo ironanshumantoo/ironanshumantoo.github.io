@@ -13,24 +13,25 @@ $(document).ready(function(){
      $('#trecovered').text(totalRecovered);
      $('#tdeaths').text(totalDeaths);
      $('#tactive').text(totalActive);
-     $.getJSON('https://geolocation-db.com/json/',function(location){
-     var currcity=location.city;
+     $.getJSON('http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx',function(location){
+     var currcity=location.geoplugin_city;
      console.log(currcity);
-     var currState=location.state;
+     var currState=location.geoplugin_regionCode;
+     var currStateName=location.geoplugin_regionName;
       //district wise info
       $.getJSON('https://api.covid19india.org/state_district_wise.json',function(distData){
             //onsole.log(currState);
             $.each(distData,function(statename,statedata){
                 //console.log(statename.toLowerCase());
-                if(statename.toLowerCase()==currState.toLowerCase())
-                {  //console.log(distData[statename]);
+                if(distData[statename].statecode==currState)
+                {  console.log(distData[statename].statecode);
                     
                     $.each(distData[statename].districtData,function(districtName,districtData){
                         //console.log(districtName);
                         if(districtName.toLowerCase()==currcity.toLowerCase())
                         { var cityWiseData=distData[statename].districtData[districtName];
                             console.log(cityWiseData);
-                            $('#cstate').text(currState);
+                            $('#cstate').text(currStateName);
                             $('#ccity').text(currcity);
                             $('#cactive').text(cityWiseData.active);
                             $('#crecovered').text(cityWiseData.recovered);
