@@ -1,4 +1,12 @@
 $(document).ready(function(){
+//get ip address
+var ip;
+$.get('https://api.ipify.org/?format=json', function(data) {
+    console.log(data.ip);
+    //ip=data.ip;
+
+});
+//console.log(ip);
 
  $.getJSON('https://api.covid19india.org/data.json',function(data){
      var statewise=data.statewise;
@@ -13,11 +21,16 @@ $(document).ready(function(){
      $('#trecovered').text(totalRecovered);
      $('#tdeaths').text(totalDeaths);
      $('#tactive').text(totalActive);
-     $.getJSON('http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx',function(location){
-     var currcity=location.geoplugin_city;
-     console.log(currcity);
-     var currState=location.geoplugin_regionCode;
-     var currStateName=location.geoplugin_regionName;
+     $.getJSON('https://api.ipify.org/?format=json',function(ipaddress){
+    var ip=ipaddress.ip;
+     var locationAddress='https://ipapi.co/'+ip+'/json/';
+     console.log(locationAddress);
+     $.getJSON(locationAddress,function(location){
+        
+     var currcity=location.city;
+     var currCountryCode=location.country;
+     var currState=location.region_code;
+     var currStateName=location.region;
       //district wise info
       $.getJSON('https://api.covid19india.org/state_district_wise.json',function(distData){
             //onsole.log(currState);
@@ -46,7 +59,7 @@ $(document).ready(function(){
 
     }); 
   
-
+});
 
  });
  
