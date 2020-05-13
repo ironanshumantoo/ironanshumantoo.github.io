@@ -13,7 +13,7 @@ $(document).ready(function(){
      $('#trecovered').text(totalRecovered);
      $('#tdeaths').text(totalDeaths);
      $('#tactive').text(totalActive);
-     $.getJSON('https://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx',function(location){
+     $.getJSON('http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx',function(location){
      var currcity=location.geoplugin_city;
      console.log(currcity);
      var currState=location.geoplugin_regionCode;
