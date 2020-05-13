@@ -3,6 +3,16 @@ $(document).ready(function(){
  $.getJSON('https://api.covid19india.org/data.json',function(data){
      var statewise=data.statewise;
      //get location based
+     var totalCases,totalRecovered,totalDeaths,totalActive;
+     totalCases=statewise[0].confirmed;
+     totalRecovered=statewise[0].recovered;
+     totalDeaths=statewise[0].deaths;
+     totalActive=statewise[0].active;
+     //updating to html
+     $('#tcases').text(totalCases);
+     $('#trecovered').text(totalRecovered);
+     $('#tdeaths').text(totalDeaths);
+     $('#tactive').text(totalActive);
      $.getJSON('https://geolocation-db.com/json/',function(location){
      var currcity=location.city;
      console.log(currcity);
@@ -20,11 +30,11 @@ $(document).ready(function(){
                         if(districtName.toLowerCase()==currcity.toLowerCase())
                         { var cityWiseData=distData[statename].districtData[districtName];
                             console.log(cityWiseData);
-                            $('#cstate').append(currState);
-                            $('#ccity').append(currcity);
-                            $('#cactive').append(cityWiseData.active);
-                            $('#crecovered').append(cityWiseData.recovered);
-                            $('#cconfirmed').append(cityWiseData.confirmed);
+                            $('#cstate').text(currState);
+                            $('#ccity').text(currcity);
+                            $('#cactive').text(cityWiseData.active);
+                            $('#crecovered').text(cityWiseData.recovered);
+                            $('#cconfirmed').text(cityWiseData.confirmed);
                             console.log("inner"+currState);
                         }
                     });
