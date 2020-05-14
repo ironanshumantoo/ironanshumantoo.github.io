@@ -5,24 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <title>Covid visulaizer</title>
+    <link rel='stylesheet' href='covid.css'>
 </head>
-<body>
-    <div>
-   <span>Total cases : </span> <span id='tcases'>updating</span>
-   <span>Active cases : </span><span id='tactive'>updating</span>
-   <span>Total recovered : </span> <span id='trecovered'>updating</span>
-    <span>Total deaths : </span><span id='tdeaths'>updating</span>
+<body class='parent'>
+    <canvas  id='canvas'>your browser doesnot suppport canvas</canvas>
+  
+    <div class='topbar'>
+      
+           
+     <div ><div></div>INDIA</div>
+      
+       <div><div><span class='pfont'>Total </span> </div><span class ='secfont' id='tcases'>updating</span></div>
+       <div><div><span>Active </span></div><span id='tactive'>updating</span></div>
+       <div><div><span>Recovered </span></div><span id='trecovered'>updating</span></div>
+       <div><div><span>Deaths</span></div><span id='tdeaths'>updating</span></div>
+           
     
     </div>
-    <div >
-        <span >Your State: </span><span id='cstate'>updating </span>
-        <span >Your City : </span>  <span id='ccity'>updating </span>
-        <span >Confirmed : </span><span id='cconfirmed'>updating </span>
-        <span >Active Cases :</span> <span id='cactive'>updating</span>
-        <span >Recovered :  </span><span id='crecovered'>updating </span>
-    
+   
+    <div class='yourCityBar' >
+        <div><span >Your State: </span><span id='cstate'>updating </span></div>
+        <div><span >Your City : </span>  <span id='ccity'>updating </span></div>
+        <div><span >Confirmed : </span><span id='cconfirmed'>updating </span></div>
+        <div><span >Active Cases :</span> <span id='cactive'>updating</span></div>
+        <div><span >Recovered :  </span><span id='crecovered'>updating </span></div>
     </div>
     
+    <div class='covidLogo'><div>COVID-19</div>INDIA</div>
+
+<!--header ends here-->
 </body>
 <script src='covid.js'></script>
 </html>

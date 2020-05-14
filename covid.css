@@ -1,0 +1,68 @@
+body{
+    margin:0px;
+
+}
+#canvas{
+    background:#052620;
+   /* background-image: radial-gradient(#014023, #012615, #000D06);*/
+    position :absolute;
+    top:0px;
+    left:0px;
+}
+.parent{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   height: 1200px;
+}
+    
+
+.covidLogo{
+   position: relative;
+     top:250;
+     left:200;
+     text-align: center;
+     color:#D9B573;
+     font-weight: 600;
+    font-size: 100pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: -webkit-linear-gradient(#D9B573, #BF9056);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+
+.topbar{
+    background-color: #BF9056;
+    box-sizing: border-box;
+    margin:10px;
+    position: sticky;
+    top:10px;
+    display: grid;
+    grid-template-columns:20% 20% 20% 20% 20%;
+    border-radius:15px;
+    margin:20px;
+   z-index: 50;
+}
+.topbar div{
+text-align: center;
+color:#052620;
+font-weight: bolder;
+font-size: 20px;
+padding:5px;
+}
+.yourCityBar{
+    box-sizing: border-box;
+    margin:10px;
+    position: sticky;
+    top:60px;
+    display: grid;
+    grid-template-columns:20% 20% 20% 20% 20%;
+    
+   z-index: 50;
+}
+.yourCityBar div{
+text-align: center;
+color:#BF9056;
+font-weight: bolder;
+font-size: 20px;
+padding:20px;
+}
+
