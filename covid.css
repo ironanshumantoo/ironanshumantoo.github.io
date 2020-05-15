@@ -3,8 +3,8 @@ body{
 
 }
 #canvas{
-       background:#474747;
-   /* background-image: radial-gradient(#014023, #012615, #000D06);*/
+       background:#173040;
+   /* background-image: radial-gradient(#014023, #012615, #000D06);#474747*/
     position :fixed;
     top:0px;
     left:0px;
@@ -29,8 +29,8 @@ body{
 }
 
 .topbar{
-    /*background-color: #BF9056;*/
-    background-color: #6C6D70;
+    /*background-color: #BF9056;#6C6D70*/
+    background-color: #2F5373;
     visibility: hidden;
     box-sizing: border-box;
     margin:10px;
@@ -54,7 +54,7 @@ padding:5px;
     visibility:hidden;
     
     box-sizing: border-box;
-    background-color: #6C6D70;
+    background-color: #2F5373;
     margin-left:35px;
     margin-right: 35px;
     position: sticky;
