@@ -1,10 +1,30 @@
+/* Color Theme Swatches in Hex */
+.color-theme_Bildschirmfoto-2020-04-23-um-10-1-hex { color: #F7224D; }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-2-hex { color: #023E73; }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-3-hex { color: #2182BF; }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-4-hex { color: #A2D4F2; }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-5-hex { color: #052849; }
+
+/* Color Theme Swatches in RGBA */
+.color-theme_Bildschirmfoto-2020-04-23-um-10-1-rgba { color: rgba(247, 34, 77, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-2-rgba { color: rgba(2, 62, 115, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-3-rgba { color: rgba(33, 130, 191, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-4-rgba { color: rgba(162, 212, 242, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-5-rgba { color: rgba(5, 40, 73, 1); }
+
+/* Color Theme Swatches in HSLA */
+.color-theme_Bildschirmfoto-2020-04-23-um-10-1-hsla { color: hsla(347, 93, 55, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-2-hsla { color: hsla(208, 96, 22, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-3-hsla { color: hsla(203, 70, 43, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-4-hsla { color: hsla(202, 75, 79, 1); }
+.color-theme_Bildschirmfoto-2020-04-23-um-10-5-hsla { color: hsla(209, 87, 15, 1); }
 body{
     margin:0px;
 
 }
 #canvas{
-       background:#474747;
-   /* background-image: radial-gradient(#014023, #012615, #000D06);*/
+       background:#052849;#023E73;#173040;
+   /* background-image: radial-gradient(#014023, #012615, #000D06);#474747*/
     position :fixed;
     top:0px;
     left:0px;
@@ -29,8 +49,8 @@ body{
 }
 
 .topbar{
-    /*background-color: #BF9056;*/
-    background-color: #6C6D70;
+    /*background-color: #BF9056;#6C6D70*/
+    background-color: rgba(47,83,115,0.7);
     visibility: hidden;
     box-sizing: border-box;
     margin:10px;
@@ -47,28 +67,28 @@ body{
 text-align: center;
 color:#F5F5F0;/*052620*/
 font-weight: bolder;
-font-size: 20px;
+font-size: 1.1em;
 padding:5px;
 }
 .otherBar{
     visibility:hidden;
     
     box-sizing: border-box;
-    background-color: #6C6D70;
+    background-color: rgba(47,83,115,0.7);
     margin-left:35px;
     margin-right: 35px;
     position: sticky;
-    top:80px;
+    top:87px;
     display: grid;
     grid-template-columns:20% 20% 20% 20% 20%;
     border-radius:25px;
-   z-index: 50;
+   
 }
 .otherBar div{
 text-align: center;
 color:white;/*052620*/
 font-weight: bolder;
-font-size: 17px;
+font-size: 1em;
 padding:20px;
 }
 .bartext{
