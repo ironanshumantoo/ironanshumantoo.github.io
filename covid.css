@@ -11,14 +11,13 @@ body{
 }
 .parent{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   height:1500px;
 }
     
 
 .covidLogo{
-   position: relative;
-     top:250;
-     left:200;
-     text-justify:inter-word;
+   position: absolute;
+        
      text-align: center;
      color:#D9B573;
      font-weight: 600;
@@ -32,6 +31,7 @@ body{
 .topbar{
     /*background-color: #BF9056;*/
     background-color: #6C6D70;
+    visibility: hidden;
     box-sizing: border-box;
     margin:10px;
     position: sticky;
@@ -50,10 +50,13 @@ font-weight: bolder;
 font-size: 20px;
 padding:5px;
 }
-.yourCityBar{
+.otherBar{
+    visibility:hidden;
+    
     box-sizing: border-box;
     background-color: #6C6D70;
-    margin:30px;
+    margin-left:35px;
+    margin-right: 35px;
     position: sticky;
     top:80px;
     display: grid;
@@ -61,14 +64,16 @@ padding:5px;
     border-radius:25px;
    z-index: 50;
 }
-.yourCityBar div{
+.otherBar div{
 text-align: center;
-color:#F5F5F0;/*052620*/
+color:white;/*052620*/
 font-weight: bolder;
-font-size: 15px;
+font-size: 17px;
 padding:20px;
 }
-
+.bartext{
+    color:#CACAC6;
+}
 .statewise{
     position: relative;
     height:400px;
@@ -76,4 +81,8 @@ padding:20px;
 .delta{
     color:#F05A26;
     font-size: medium;
+}
+.deltaRecover{
+    color:greenyellow;
+    
 }

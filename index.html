@@ -9,32 +9,38 @@
 </head>
 <body class='parent'>
     <canvas  id='canvas'>your browser doesnot suppport canvas</canvas>
-  
+    <div class='covidLogo'><div>COVID-19</div><div>INDIA</div><div><img src='loading.svg'></div></div>
     <div class='topbar'>
       
            
-     <div ><div></div>INDIA</div>
+     <div> <div><span class='bartext'>Country</span></div> <div>INDIA</div> </div>
       
-       <div><div><span>Total </span> </div><span id='tcases'>updating</span><span class ='delta' id='del_tcases'></span></div>
-       <div><div><span>Active </span></div><span id='tactive'>updating</span ></div>
-       <div><div><span>Recovered </span></div><span id='trecovered'>updating</span><span class ='delta' id='del_trecovered'></span></div>
-       <div><div><span>Deaths</span></div><span id='tdeaths'>updating</span><span class ='delta' id='del_tdeaths'></span></div>
+       <div><div><span class='bartext'>Total </span> </div><span id='tcases'>updating</span><span class ='delta' id='del_tcases'></span></div>
+       <div><div><span class='bartext'>Active </span></div><span id='tactive'>updating</span ></div>
+       <div><div><span class='bartext'>Recovered </span></div><span id='trecovered'>updating</span><span class='deltaRecover' id='del_trecovered'></span></div>
+       <div><div><span class='bartext'>Deaths</span></div><span id='tdeaths'>updating</span><span class ='delta' id='del_tdeaths'></span></div>
            
     
     </div>
-   
-    <div class='yourCityBar' >
-        <div><span >Your State: </span><span id='cstate'>updating </span></div>
-        <div><span >Your City : </span>  <span id='ccity'>updating </span></div>
-        <div><span >Confirmed : </span><span id='cconfirmed'>updating </span></div>
-        <div><span >Active Cases :</span> <span id='cactive'>updating</span></div>
-        <div><span >Recovered :  </span><span id='crecovered'>updating </span></div>
+    <div class='otherBar' >
+        <div><span id='cstate'>updating </span></div>
+        
+        <div><span id='sconfirmed'>updating </span><span class='delta' id='del_scases'></span></div>
+        <div> <span id='sactive'>updating</span></div>
+        <div><span id='srecovered'>updating </span><span class='deltaRecover'id='del_srecovered'></span></div>
+        <div><span id='sdeath'>updating</span><span class='delta' id='del_sdeath'></span></div>
+    </div>
+    <div class='otherBar' style="position: sticky;top:140px;margin-left: 50px;margin-right: 50px;margin-top: 20px;">
+        
+        <div>  <span id='ccity'>updating </span></div>
+        <div><span id='cconfirmed'>updating </span><span class='delta' id='del_ccases'></span></div>
+        <div> <span id='cactive'>updating</span></div>
+        <div><span id='crecovered'>updating </span><span class='deltaRecover' id='del_crecovered'></span></div>
+        <div><span id='cdeath'>updating</span><span class='delta' id='del_cdeath'></span></div>
     </div>
     
-    <div class='covidLogo'><div>COVID-19</div><div>INDIA</div></div>
-    <section class ='statewise'>
-        <div><span>state</span><span>active</span><span>recovered</span></div>
-    </section>
+   
+    
 <!--header ends here-->
 </body>
 <script src='covid.js'></script>

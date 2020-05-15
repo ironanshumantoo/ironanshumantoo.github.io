@@ -1,5 +1,6 @@
 //html elements
-
+var top=window.innerHeight/3;
+$('.covidLogo').css('top','20px');
 
 
 //mouse position
@@ -190,6 +191,27 @@ $(document).ready(function(){
      var currCountryCode=location.country;
      var currState=location.region_code;
      var currStateName=location.region;
+        //current state info
+       for(var k=0;k<data.statewise.length;k++)
+       {
+           if(data.statewise[k].statecode==currState)
+           { let sdata=data.statewise[k];
+               $('#cstate').text(sdata.state);
+               $('#sconfirmed').text(sdata.confirmed);
+               $('#sactive').text(sdata.active);
+               $('#srecovered').text(sdata.recovered);
+               $('#sdeath').text(sdata.deaths);
+               $('#del_scases').text("+"+sdata.deltaconfirmed);
+               $('#del_sdeath').text("+"+sdata.deltadeaths);
+               $('#del_srecovered').text("+"+sdata.deltarecovered);
+               $('.covidLogo').css('visibility','hidden');
+               $('.otherBar').css('visibility','visible');
+               $('.topbar').css('visibility','visible');
+               break;
+           }
+       }
+
+
       //district wise info
       $.getJSON('https://api.covid19india.org/state_district_wise.json',function(distData){
             //onsole.log(currState);
@@ -208,7 +230,12 @@ $(document).ready(function(){
                             $('#cactive').text(cityWiseData.active);
                             $('#crecovered').text(cityWiseData.recovered);
                             $('#cconfirmed').text(cityWiseData.confirmed);
+                            $('#cdeath').text(cityWiseData.deceased);
+                            $('#del_ccases').text("+"+cityWiseData.delta.confirmed);
+                            $('#del_crecovered').text("+"+cityWiseData.delta.recovered);
+                            $('#del_cdeath').text("+"+cityWiseData.delta.deceased);
                             console.log("inner"+currState);
+                            
                         }
                     });
                 }
