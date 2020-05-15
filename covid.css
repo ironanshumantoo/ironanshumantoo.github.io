@@ -3,15 +3,14 @@ body{
 
 }
 #canvas{
-    background:#052620;
+       background:#474747;
    /* background-image: radial-gradient(#014023, #012615, #000D06);*/
-    position :absolute;
+    position :fixed;
     top:0px;
     left:0px;
 }
 .parent{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
-   height: 1200px;
 }
     
 
@@ -19,50 +18,62 @@ body{
    position: relative;
      top:250;
      left:200;
+     text-justify:inter-word;
      text-align: center;
      color:#D9B573;
      font-weight: 600;
-    font-size: 100pt;
+    font-size: 80pt;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: -webkit-linear-gradient(#D9B573, #BF9056);
+    background: -webkit-linear-gradient(#F5F5F0, #CACAC6);
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
 }
 
 .topbar{
-    background-color: #BF9056;
+    /*background-color: #BF9056;*/
+    background-color: #6C6D70;
     box-sizing: border-box;
     margin:10px;
     position: sticky;
     top:10px;
     display: grid;
     grid-template-columns:20% 20% 20% 20% 20%;
-    border-radius:15px;
+    border-radius:25px;
     margin:20px;
+    overflow: hidden;
    z-index: 50;
 }
 .topbar div{
 text-align: center;
-color:#052620;
+color:#F5F5F0;/*052620*/
 font-weight: bolder;
 font-size: 20px;
 padding:5px;
 }
 .yourCityBar{
     box-sizing: border-box;
-    margin:10px;
+    background-color: #6C6D70;
+    margin:30px;
     position: sticky;
-    top:60px;
+    top:80px;
     display: grid;
     grid-template-columns:20% 20% 20% 20% 20%;
-    
+    border-radius:25px;
    z-index: 50;
 }
 .yourCityBar div{
 text-align: center;
-color:#BF9056;
+color:#F5F5F0;/*052620*/
 font-weight: bolder;
-font-size: 20px;
+font-size: 15px;
 padding:20px;
 }
 
+.statewise{
+    position: relative;
+    height:400px;
+}
+.delta{
+    color:#F05A26;
+    font-size: medium;
+}

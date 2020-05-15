@@ -27,13 +27,17 @@ var c=canvas.getContext("2d");
 function clearCanvas(){
     c.clearRect(0,0,canvas.width,canvas.height);
 }
-
+//canvas size update
+function canvasUpdate(){
+    canvas.height=window.innerHeight;
+    canvas.width=window.innerWidth;
+}
 //canvas objects and anime
 //covid images
 var covidImage = new Image();
 var smallcovidImage=new Image();
 covidImage.onload = function() {
- smallcovidImage.onload=function(){
+    console.log('covidImage');
 
      function SmallVirus(x,y,dx,dy,w,h){
         this.x=x;
@@ -44,7 +48,7 @@ covidImage.onload = function() {
         this.w=w;
         this.h=h;
         this.draw=function(){
-            c.drawImage(smallcovidImage,this.x,this.y,this.w,this.h);
+            c.drawImage(covidImage,this.x,this.y,this.w,this.h);
             
         }
         this.update=function(){
@@ -91,8 +95,8 @@ covidImage.onload = function() {
             //console.log(this.currentDistance,"current");
             if(this.currentDistance<80 && this.currentDistance<this.prevDistance)
             {
-                this.dx=-this.dx*5;
-                this.dy=-this.dy*5;
+                this.dx=this.dx<0?10:-10;
+                this.dy=this.dy<0?10:-10;
             }
             this.prevx=this.x;
             this.prevy=this.y;
@@ -130,17 +134,20 @@ covidImage.onload = function() {
     }
 
     function animation(){
+       
         requestAnimationFrame(animation);
+        canvasUpdate();
         clearCanvas();
         for(var i=0;i<viruses.length;i++)
         {viruses[i].update();
             smallViruses[i].update();
         }
-       
+        
     }
   animation();
- }
+ 
 }
+
 //covid image sources
 covidImage.src = 'coronavirus.svg';
 smallcovidImage.src='coronavirus.svg';
@@ -154,16 +161,24 @@ $(document).ready(function(){
  $.getJSON('https://api.covid19india.org/data.json',function(data){
      var statewise=data.statewise;
      //get location based
-     var totalCases,totalRecovered,totalDeaths,totalActive;
+     var totalCases,totalRecovered,totalDeaths,totalActive,deltaTotalCases,deltaTotalRecovered,
+     deltaTotalDeaths;
      totalCases=statewise[0].confirmed;
      totalRecovered=statewise[0].recovered;
      totalDeaths=statewise[0].deaths;
      totalActive=statewise[0].active;
+     deltaTotalCases=statewise[0].deltaconfirmed;
+     deltaTotalRecovered=statewise[0].deltarecovered;
+     deltaTotalDeaths=statewise[0].deltadeaths;
      //updating to html
      $('#tcases').text(totalCases);
      $('#trecovered').text(totalRecovered);
      $('#tdeaths').text(totalDeaths);
      $('#tactive').text(totalActive);
+     $('#del_tcases').text("+"+deltaTotalCases);
+     $('#del_tdeaths').text("+"+deltaTotalDeaths);
+     $('#del_trecovered').text("+"+deltaTotalRecovered);
+
      $.getJSON('https://api.ipify.org/?format=json',function(ipaddress){
     var ip=ipaddress.ip;
      var locationAddress='https://ipapi.co/'+ip+'/json/';
