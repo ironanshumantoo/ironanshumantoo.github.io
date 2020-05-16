@@ -15,10 +15,10 @@
         <div><img class='covidLogo'src='loading.svg'></div>
     </section>
 
-    <container class='wrapper'>
+<container class='wrapper'>
     
-   <div style='height: 30px;'></div>
-    <div class="topbar">        
+<div style='height: 300px;'></div>
+<div class="topbar">        
     <table id='toptable'>
              <tr>
              <th><span class='tableheadtext'>COVID-19</span></th>
@@ -36,31 +36,52 @@
              <td><span class='tabletext' id='trecovered'>updating</span><span class='deltaRecover' id='del_trecovered'></span></td>
              <td><span class='tabletext' id='tdeaths'>updating</span><span class ='delta' id='del_tdeaths'></span></td>     
              </tr>  
-            </table>
-    </div>
+    </table>
+    
     
       
-       
+</div><!--topbar ends here-->
+   <div class='gap'></div>
    
-    
-   
-    <div class='otherBar' >
-        <div><span id='cstate'>updating </span></div>
-        <div><span id='sconfirmed'>updating </span><span class='delta' id='del_scases'></span></div>
-        <div> <span id='sactive'>updating</span></div>
-        <div><span id='srecovered'>updating </span><span class='deltaRecover'id='del_srecovered'></span></div>
-        <div><span id='sdeath'>updating</span><span class='delta' id='del_sdeath'></span></div>
-    </div>
-    <div class='otherBar' style="position: sticky;top:146px;margin-left: 50px;margin-right: 50px;margin-top: 20px;">
+  
+    <div id='topbar2'>
+        <table class='othertables'>
+            <tr>
+        <td><span class='tabletext' id='cstate'>updating </span></td>
+        <td><span class='tabletext'id='sconfirmed'>updating </span><span class='delta' id='del_scases'></span></td>
+        <td> <span class='tabletext'id='sactive'>updating</span></td>
+        <td><span class='tabletext'id='srecovered'>updating </span><span class='deltaRecover'id='del_srecovered'></span></td>
+        <td><span class='tabletext'id='sdeath'>updating</span><span class='delta' id='del_sdeath'></span></td>
+        </tr> 
+        </table>
         
-        <div>  <span id='ccity'>updating </span></div>
-        <div><span id='cconfirmed'>updating </span><span class='delta' id='del_ccases'></span></div>
-        <div> <span id='cactive'>updating</span></div>
-        <div><span id='crecovered'>updating </span><span class='deltaRecover' id='del_crecovered'></span></div>
-        <div><span id='cdeath'>updating</span><span class='delta' id='del_cdeath'></span></div>
     </div>
+    <div class='gap'></div>
+    <container class='wrapper2'> 
+
+     <div>   
+    <div class='otherbar' >
+        <table class='othertables'>
+            <tr>
+        <td><span class='tabletext' id='ccity'>updating </span></td>
+        <td><span class='tabletext'id='cconfirmed'>updating </span><span class='delta' id='del_ccases'></span></td>
+        <td> <span class='tabletext'id='cactive'>updating</span></td>
+        <td><span class='tabletext'id='crecovered'>updating </span><span class='deltaRecover'id='del_crecovered'></span></td>
+        <td><span class='tabletext'id='cdeath'>updating</span><span class='delta' id='del_cdeath'></span></td>
+        </tr> 
+        </table>
+        
+    </div>
+    <div class='gap'></div>
+     </div>
+
+  
     
    
+    
+   
+</container>
+
     </container>
 <!--header ends here-->
 </body>

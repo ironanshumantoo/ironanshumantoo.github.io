@@ -188,14 +188,14 @@ $(document).ready(function(){
      console.log(locationAddress);
      
      $.getJSON(locationAddress,function(location){
-        
+     var stateSortedData=[];   
      var currcity=location.city;
      var currCountryCode=location.country;
      var currState=location.region_code;
      var currStateName=location.region;
         //current state info
        for(var k=0;k<data.statewise.length;k++)
-       {
+       {    stateSortedData.push(data.statewise[k].confirmed);
            if(data.statewise[k].statecode==currState)
            { let sdata=data.statewise[k];
                $('#cstate').text(sdata.state);
@@ -210,11 +210,41 @@ $(document).ready(function(){
                $('.otherBar').css('visibility','visible');
                $('.topbar').css('visibility','visible');
                $('.toptable').css('visibility','visible');
-               break;
+               
+            
            }
        }
-
-
+       stateSortedData.sort(function(a,b){return b-a});
+              
+       for(var i=1;i<stateSortedData.length;i++)
+       {
+           for(var j=0;j<data.statewise.length;j++)
+           {
+               if(data.statewise[j].confirmed==stateSortedData[i])
+               {
+                   $('.wrapper2').append(`<div>   
+                       <div class="otherbar" >
+                           <table class="othertables">
+                               <tr>
+                           <td><span class="tabletext">`+data.statewise[j].state+`</span></td>
+                           <td><span class="tabletext">`+data.statewise[j].confirmed+`</span><span class="delta" >`+data.statewise[j].deltaconfirmed+`</span></td>
+                           <td><span class="tabletext">`+data.statewise[j].active+`</span></td>
+                           <td><span class="tabletext">`+data.statewise[j].recovered+` </span><span class="deltaRecover">`+data.statewise[j].deltarecovered+`</span></td>
+                           <td><span class="tabletext">`+data.statewise[j].deaths+`</span><span class="delta" >`+data.statewise[j].deltadeaths+`</span></td>
+                           </tr> 
+                           </table>
+                           
+                       </div>
+                       <div class="gap"></div>
+                        </div>
+                        `
+                   );
+                   console.log(data.statewise[j]);
+                   break;
+               }
+           }
+       }
+       $('.otherbar').css('visibility','visible');
       //district wise info
       $.getJSON('https://api.covid19india.org/state_district_wise.json',function(distData){
             //onsole.log(currState);
@@ -238,7 +268,7 @@ $(document).ready(function(){
                             $('#del_crecovered').text("+"+cityWiseData.delta.recovered);
                             $('#del_cdeath').text("+"+cityWiseData.delta.deceased);
                             console.log("inner"+currState);
-                            
+                            $('.wrapper2').append('<div>hey its me</div>');
                         }
                     });
                 }
