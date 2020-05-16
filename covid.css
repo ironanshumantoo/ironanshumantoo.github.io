@@ -1,44 +1,34 @@
-/* Color Theme Swatches in Hex */
-.color-theme_Bildschirmfoto-2020-04-23-um-10-1-hex { color: #F7224D; }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-2-hex { color: #023E73; }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-3-hex { color: #2182BF; }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-4-hex { color: #A2D4F2; }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-5-hex { color: #052849; }
 
-/* Color Theme Swatches in RGBA */
-.color-theme_Bildschirmfoto-2020-04-23-um-10-1-rgba { color: rgba(247, 34, 77, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-2-rgba { color: rgba(2, 62, 115, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-3-rgba { color: rgba(33, 130, 191, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-4-rgba { color: rgba(162, 212, 242, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-5-rgba { color: rgba(5, 40, 73, 1); }
-
-/* Color Theme Swatches in HSLA */
-.color-theme_Bildschirmfoto-2020-04-23-um-10-1-hsla { color: hsla(347, 93, 55, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-2-hsla { color: hsla(208, 96, 22, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-3-hsla { color: hsla(203, 70, 43, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-4-hsla { color: hsla(202, 75, 79, 1); }
-.color-theme_Bildschirmfoto-2020-04-23-um-10-5-hsla { color: hsla(209, 87, 15, 1); }
 body{
     margin:0px;
 
 }
 #canvas{
-       background:#052849;#023E73;#173040;
+       background:#185959; 
+       background-image:linear-gradient(to bottom right,#4F8C8C,#185959);
    /* background-image: radial-gradient(#014023, #012615, #000D06);#474747*/
     position :fixed;
     top:0px;
     left:0px;
 }
 .parent{
+   position: relative;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    height:1500px;
 }
-    
+ .wrapper{
+     position:relative;
+ }
 
+ .logo{
+    position: absolute;
+     width: 100%;
+    text-align: center;
+
+ }
 .covidLogo{
-   position: absolute;
-        
-     text-align: center;
+    text-align: center;
+     
      color:#D9B573;
      font-weight: 600;
     font-size: 80pt;
@@ -49,60 +39,69 @@ body{
 }
 
 .topbar{
-    /*background-color: #BF9056;#6C6D70*/
-    background-color: rgba(47,83,115,0.7);
-    visibility: hidden;
-    box-sizing: border-box;
-    margin:10px;
-    position: sticky;
-    top:10px;
-    display: grid;
-    grid-template-columns:20% 20% 20% 20% 20%;
-    border-radius:25px;
-    margin:20px;
-    overflow: hidden;
-   z-index: 50;
-}
-.topbar div{
-text-align: center;
-color:#F5F5F0;/*052620*/
-font-weight: bolder;
-font-size: 1.1em;
-padding:5px;
-}
-.otherBar{
+    position:sticky;
+    top:0;
     visibility:hidden;
-    
-    box-sizing: border-box;
-    background-color: rgba(47,83,115,0.7);
-    margin-left:35px;
-    margin-right: 35px;
-    position: sticky;
-    top:87px;
-    display: grid;
-    grid-template-columns:20% 20% 20% 20% 20%;
-    border-radius:25px;
+    overflow: auto;
+
+}
+#toptable{
+    width: 80%;
+    height:1em;
+    text-align: center;
+    margin:0 auto;
    
 }
-.otherBar div{
-text-align: center;
-color:white;/*052620*/
-font-weight: bolder;
-font-size: 1em;
-padding:20px;
+.othertables{
+    width: 80%;
+    height:1em;
+    
+    text-align: center;
+    margin:0 auto;
 }
-.bartext{
-    color:#CACAC6;
+td{
+    vertical-align: middle;
+  
+    padding: 0.5em;
+    width:20%;
+   
 }
+th{
+    
+    width:20%;
+}
+
+.tableheadtext{
+    font-size: 1.5em;
+    color:black;
+    background-color: #F2A516;
+    padding-left:0.5em;
+    padding-right: 0.5em;
+}
+.tabletext{
+    background-color: white;
+    color:black;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
 .statewise{
     position: relative;
     height:400px;
 }
 .delta{
-    color:#F05A26;
-    font-size: medium;
+    background-color: #FF003C;
+    color: white;
+    font-size: 1em;
+    font-weight: 200;
+    padding:2px 4px;
 }
 .deltaRecover{
+    background-color: black;
     color:greenyellow;
+    font-size: 1em;
+    padding: 2px 2px;
     
 }

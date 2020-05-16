@@ -5,26 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <title>Covid visulaizer</title>
-    <link rel='stylesheet' href='covid.css'>
+    <link rel='stylesheet' href='newcovid.css'>
 </head>
 <body class='parent'>
     <canvas  id='canvas'>your browser doesnot suppport canvas</canvas>
-    <div class='covidLogo'><div>COVID-19</div><div>INDIA</div><div><img src='loading.svg'></div></div>
-    <div class='topbar'>
-      
-           
-     <div> <div><span class='bartext'>Country</span></div> <div>INDIA</div> </div>
-      
-       <div><div><span class='bartext'>Total </span> </div><span id='tcases'>updating</span><span class ='delta' id='del_tcases'></span></div>
-       <div><div><span class='bartext'>Active </span></div><span id='tactive'>updating</span ></div>
-       <div><div><span class='bartext'>Recovered </span></div><span id='trecovered'>updating</span><span class='deltaRecover' id='del_trecovered'></span></div>
-       <div><div><span class='bartext'>Deaths</span></div><span id='tdeaths'>updating</span><span class ='delta' id='del_tdeaths'></span></div>
-           
+    <section class='logo'>
+        <div ><span class='covidLogo'>COVID-19</span></div>
+        <div><span class='covidLogo'>INDIA</span></div>
+        <div><img class='covidLogo'src='loading.svg'></div>
+    </section>
+
+    <container class='wrapper'>
     
+   <div style='height: 30px;'></div>
+    <div class="topbar">        
+    <table id='toptable'>
+             <tr>
+             <th><span class='tableheadtext'>COVID-19</span></th>
+             <th><span class='tableheadtext'>Total </span></th>
+             <th><span class='tableheadtext'>Active </span></th>
+             <th><span class='tableheadtext'>Recovered </span></th>
+             <th><span class='tableheadtext'>Deaths</span></th>
+             </tr>
+    </table>
+    <table class='othertables'>
+             <tr>
+             <td><span class='tabletext'>INDIA</span></td>
+             <td><span  class='tabletext'id='tcases'>updating</span><span class ='delta' id='del_tcases'></span></td>
+             <td><span  class='tabletext'id='tactive'>updating</span ></td>
+             <td><span class='tabletext' id='trecovered'>updating</span><span class='deltaRecover' id='del_trecovered'></span></td>
+             <td><span class='tabletext' id='tdeaths'>updating</span><span class ='delta' id='del_tdeaths'></span></td>     
+             </tr>  
+            </table>
     </div>
+    
+      
+       
+   
+    
+   
     <div class='otherBar' >
         <div><span id='cstate'>updating </span></div>
-        
         <div><span id='sconfirmed'>updating </span><span class='delta' id='del_scases'></span></div>
         <div> <span id='sactive'>updating</span></div>
         <div><span id='srecovered'>updating </span><span class='deltaRecover'id='del_srecovered'></span></div>
@@ -40,7 +61,7 @@
     </div>
     
    
-    
+    </container>
 <!--header ends here-->
 </body>
 <script src='covid.js'></script>

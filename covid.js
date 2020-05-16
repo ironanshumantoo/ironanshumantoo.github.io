@@ -1,6 +1,5 @@
 //html elements
-var top=window.innerHeight/3;
-$('.covidLogo').css('top','20px');
+
 
 
 //mouse position
@@ -23,6 +22,8 @@ function distance(x1,y1,x2,y2){
 var canvas=document.querySelector('canvas');
 canvas.height=window.innerHeight;
 canvas.width=window.innerWidth;
+if(canvas.width<canvas.height)
+alert('Please roatate your device for better experience or switch to a computer.');
 var c=canvas.getContext("2d");
 //function to clear canvas
 function clearCanvas(){
@@ -32,6 +33,7 @@ function clearCanvas(){
 function canvasUpdate(){
     canvas.height=window.innerHeight;
     canvas.width=window.innerWidth;
+
 }
 //canvas objects and anime
 //covid images
@@ -207,6 +209,7 @@ $(document).ready(function(){
                $('.covidLogo').css('visibility','hidden');
                $('.otherBar').css('visibility','visible');
                $('.topbar').css('visibility','visible');
+               $('.toptable').css('visibility','visible');
                break;
            }
        }
