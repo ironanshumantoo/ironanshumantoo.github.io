@@ -22,11 +22,12 @@ body{
  }
 .wrapper2{
     position: relative;
+
     
 }
 .otherbar{
     position: sticky;
-    top:5em;
+    top:6.8vw;
     visibility:hidden;
 }
  .logo{
@@ -49,35 +50,33 @@ body{
 
 .topbar{
     position:sticky;
-    top:0;
+    top:0vh;
     visibility:hidden;
     overflow: auto;
     z-index: 50;
 }
 #topbar2{
     position: sticky;
-    top:3.5em;
+    top:4.8vw;
     z-index: 49;
+    visibility: hidden;
 }
 #toptable{
-    width: 80%;
+    width: 85vw;
     height:1em;
     text-align: left;
     margin:0 auto;
    
 }
 .othertables{
-    min-width: 80%;;
-    max-width: 98%;
-    
-    
+    width: 85vw;;
+      
     text-align: left;
     margin:0 auto;
 }
 td{
     vertical-align: middle;
        width:20%;
-   
 }
 th{
     
@@ -85,7 +84,7 @@ th{
 }
 
 .tableheadtext{
-    font-size: 1.5em;
+    font-size: 2vw;
     color:black;
     background-color: #F2A516;
     padding-left:0.5em;
@@ -94,7 +93,7 @@ th{
 .tabletext{
     background-color: white;
     color:black;
-    font-size: 1.3em;
+    font-size: 1.7vw;
     font-weight: 600;
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -107,14 +106,14 @@ th{
 .delta{
     background-color: #FF003C;
     color: white;
-    font-size: 1em;
-    font-weight: 200;
+    font-size: 1vw;
+    
     padding:2px 4px;
 }
 .deltaRecover{
     background-color: black;
     color:greenyellow;
-    font-size: 1em;
+    font-size: 1vw;
     padding: 2px 2px;
     
 }

@@ -22,8 +22,8 @@ function distance(x1,y1,x2,y2){
 var canvas=document.querySelector('canvas');
 canvas.height=window.innerHeight;
 canvas.width=window.innerWidth;
-if(canvas.width<canvas.height)
-alert('Please roatate your device for better experience or switch to a computer.');
+/*if(canvas.width<canvas.height)
+alert('Please roatate your device for better experience or switch to a computer.');*/
 var c=canvas.getContext("2d");
 //function to clear canvas
 function clearCanvas(){
@@ -145,6 +145,7 @@ covidImage.onload = function() {
         {viruses[i].update();
             smallViruses[i].update();
         }
+        console.log(document.getElementById('hideshow0').offsetTop);
         
     }
   animation();
@@ -209,42 +210,70 @@ $(document).ready(function(){
                $('.covidLogo').css('visibility','hidden');
                $('.otherBar').css('visibility','visible');
                $('.topbar').css('visibility','visible');
+               $('#topbar2').css('visibility','visible');
                $('.toptable').css('visibility','visible');
                
             
            }
        }
        stateSortedData.sort(function(a,b){return b-a});
-              
+       var addedStateList=[];       
        for(var i=1;i<stateSortedData.length;i++)
        {
            for(var j=0;j<data.statewise.length;j++)
            {
-               if(data.statewise[j].confirmed==stateSortedData[i])
+               if(data.statewise[j].confirmed==stateSortedData[i]&&
+                !addedStateList.includes(data.statewise[j].statecode))
                {
-                   $('.wrapper2').append(`<div>   
-                       <div class="otherbar" >
+                   $('.wrapper2').append(`   <div>
+                       <div class="otherbar" id="hideshow`+i+`" >
                            <table class="othertables">
                                <tr>
                            <td><span class="tabletext">`+data.statewise[j].state+`</span></td>
-                           <td><span class="tabletext">`+data.statewise[j].confirmed+`</span><span class="delta" >`+data.statewise[j].deltaconfirmed+`</span></td>
+                           <td><span class="tabletext">`+data.statewise[j].confirmed+`</span><span class="delta" >+`+data.statewise[j].deltaconfirmed+`</span></td>
                            <td><span class="tabletext">`+data.statewise[j].active+`</span></td>
-                           <td><span class="tabletext">`+data.statewise[j].recovered+` </span><span class="deltaRecover">`+data.statewise[j].deltarecovered+`</span></td>
-                           <td><span class="tabletext">`+data.statewise[j].deaths+`</span><span class="delta" >`+data.statewise[j].deltadeaths+`</span></td>
+                           <td><span class="tabletext">`+data.statewise[j].recovered+` </span><span class="deltaRecover">+`+data.statewise[j].deltarecovered+`</span></td>
+                           <td><span class="tabletext">`+data.statewise[j].deaths+`</span><span class="delta" >+`+data.statewise[j].deltadeaths+`</span></td>
                            </tr> 
                            </table>
                            
                        </div>
                        <div class="gap"></div>
                         </div>
-                        `
+                     `
                    );
-                   console.log(data.statewise[j]);
+                    addedStateList.push(data.statewise[j].statecode);
+                  // console.log(data.statewise[j]);
                    break;
                }
            }
        }
+       //otherbar visibility
        $('.otherbar').css('visibility','visible');
+       //sticky other bar hideshow
+       $(document).scroll(function(){
+        console.log('scroll');
+        for(var i=1;i<data.statewise.length;i++)
+        {var hideshowid='#hideshow'+i;
+        
+         var position=$(hideshowid).offset().top;
+         //console.log(hideshowid," ",position);
+            if(position>81 && position<85)
+            {var previd='#hideshow'+(i-1);
+              $(previd).css('visibility','hidden');
+              console.log(previd,'hidden');
+              
+                break;
+            }
+            else{var previd='#hideshow'+(i-1);
+                $(previd).css('visibility','visible');
+            }
+
+        }
+         });
+
+
+
       //district wise info
       $.getJSON('https://api.covid19india.org/state_district_wise.json',function(distData){
             //onsole.log(currState);
