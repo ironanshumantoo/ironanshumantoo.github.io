@@ -209,7 +209,7 @@ $(document).ready(function(){
                $('#del_srecovered').text("+"+sdata.deltarecovered);
                $('.covidLogo').css('visibility','hidden');
                $('.otherBar').css('visibility','visible');
-               $('.topbar').css('visibility','visible');
+               $('#topbar').css('visibility','visible');
                $('#topbar2').css('visibility','visible');
                $('.toptable').css('visibility','visible');
                
@@ -225,8 +225,10 @@ $(document).ready(function(){
                if(data.statewise[j].confirmed==stateSortedData[i]&&
                 !addedStateList.includes(data.statewise[j].statecode))
                {
-                   $('.wrapper2').append(`   <div>
-                       <div class="otherbar" id="hideshow`+i+`" >
+                   $('.wrapper2').append(` 
+                   <div >
+                       <div class='otherbar design' id="hideshow`+i+`" >
+                      
                            <table class="othertables">
                                <tr>
                            <td><span class="tabletext">`+data.statewise[j].state+`</span></td>
@@ -238,7 +240,9 @@ $(document).ready(function(){
                            </table>
                            
                        </div>
-                       <div class="gap"></div>
+                       
+                       <div class='intergap'></div>
+
                         </div>
                      `
                    );

@@ -1,11 +1,30 @@
+/* Color Theme Swatches in Hex */
+.Yehliu-Geopark-1-hex { color: #185959; }
+.Yehliu-Geopark-2-hex { color: #4F8C8C; }
+.Yehliu-Geopark-3-hex { color: #D98723; }
+.Yehliu-Geopark-4-hex { color: #BF6D24; }
+.Yehliu-Geopark-5-hex { color: #8C5626; }
 
+/* Color Theme Swatches in RGBA */
+.Yehliu-Geopark-1-rgba { color: rgba(24, 89, 89, 1); }
+.Yehliu-Geopark-2-rgba { color: rgba(78, 140, 140, 1); }
+.Yehliu-Geopark-3-rgba { color: rgba(216, 134, 34, 1); }
+.Yehliu-Geopark-4-rgba { color: rgba(191, 108, 36, 1); }
+.Yehliu-Geopark-5-rgba { color: rgba(140, 85, 37, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Yehliu-Geopark-1-hsla { color: hsla(180, 57, 22, 1); }
+.Yehliu-Geopark-2-hsla { color: hsla(180, 28, 42, 1); }
+.Yehliu-Geopark-3-hsla { color: hsla(33, 72, 49, 1); }
+.Yehliu-Geopark-4-hsla { color: hsla(28, 68, 44, 1); }
+.Yehliu-Geopark-5-hsla { color: hsla(28, 57, 34, 1); }
 body{
     margin:0px;
 
 }
 #canvas{
-       background:#185959; 
-       background-image:linear-gradient(to bottom right,#4F8C8C,#185959);
+    background:#052849; 
+      /* background-image:linear-gradient(to bottom right,#4F8C8C,#185959);*/
    /* background-image: radial-gradient(#014023, #012615, #000D06);#474747*/
     position :fixed;
     top:0px;
@@ -27,7 +46,7 @@ body{
 }
 .otherbar{
     position: sticky;
-    top:6.8vw;
+    top:8.1vw;
     visibility:hidden;
 }
  .logo{
@@ -48,16 +67,23 @@ body{
      -webkit-text-fill-color: transparent;
 }
 
-.topbar{
+#topbar{
     position:sticky;
-    top:0vh;
+    top:0;
+    margin-top: 0px;
     visibility:hidden;
     overflow: auto;
     z-index: 50;
 }
+#topbar1{
+    position: sticky;
+    top:3vw;
+    z-index: 49;
+
+}
 #topbar2{
     position: sticky;
-    top:4.8vw;
+    top:5.6vw;
     z-index: 49;
     visibility: hidden;
 }
@@ -86,31 +112,29 @@ th{
 .tableheadtext{
     font-size: 2vw;
     color:black;
-    background-color: #F2A516;
-    padding-left:0.5em;
-    padding-right: 0.5em;
+    
+    
 }
 .tabletext{
-    background-color: white;
-    color:black;
+    
+    color:white;
     font-size: 1.7vw;
     font-weight: 600;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+  
 }
 
 .statewise{
     position: relative;
     height:400px;
 }
-.delta{
+.ddelta{
     background-color: #FF003C;
     color: white;
     font-size: 1vw;
     
     padding:2px 4px;
 }
-.deltaRecover{
+.ddeltaRecover{
     background-color: black;
     color:greenyellow;
     font-size: 1vw;
@@ -118,5 +142,34 @@ th{
     
 }
 .gap{
+    height:40px;
+}
+.intergap{
     height:20px;
+}
+.topdesign{
+    width: 85vw;
+ margin: 0.2vw auto;
+ background-color: rgba(216, 134, 34,0.95);
+ border-radius: 20px;
+}
+.design{
+ 
+ width: 85vw;
+ margin: auto;
+ background-color: rgba(24,89,89,0.8);
+ border-radius: 20px;
+}
+.delta{
+    
+    color: #FF003C;
+    font-size: 1vw;
+    
+    padding:2px 4px;
+}
+.deltaRecover{ 
+    color:greenyellow;
+    font-size: 1vw;
+    padding: 2px 2px;
+    
 }
