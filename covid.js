@@ -145,7 +145,7 @@ covidImage.onload = function() {
         {viruses[i].update();
             smallViruses[i].update();
         }
-        console.log(document.getElementById('hideshow0').offsetTop);
+        //console.log(document.getElementById('hideshow0').offsetTop);
         
     }
   animation();
@@ -210,7 +210,7 @@ $(document).ready(function(){
                $('.covidLogo').css('visibility','hidden');
                $('.otherBar').css('visibility','visible');
                $('#topbar').css('visibility','visible');
-               $('#topbar2').css('visibility','visible');
+               //$('#topbar2').css('visibility','visible');
                $('.toptable').css('visibility','visible');
                
             
@@ -230,6 +230,10 @@ $(document).ready(function(){
                        <div class='otherbar design' id="hideshow`+i+`" >
                       
                            <table class="othertables">
+                             <colgroup>
+                                <col span="1" style="width: 30%;">
+                
+                             </colgroup>
                                <tr>
                            <td><span class="tabletext">`+data.statewise[j].state+`</span></td>
                            <td><span class="tabletext">`+data.statewise[j].confirmed+`</span><span class="delta" >+`+data.statewise[j].deltaconfirmed+`</span></td>
@@ -242,7 +246,7 @@ $(document).ready(function(){
                        </div>
                        
                        <div class='intergap'></div>
-
+                        <div style="height:1px;background-color:black;"></div>
                         </div>
                      `
                    );

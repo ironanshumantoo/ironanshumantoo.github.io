@@ -18,17 +18,167 @@
 .Yehliu-Geopark-3-hsla { color: hsla(33, 72, 49, 1); }
 .Yehliu-Geopark-4-hsla { color: hsla(28, 68, 44, 1); }
 .Yehliu-Geopark-5-hsla { color: hsla(28, 57, 34, 1); }
+
+*{
+    margin:0;
+    border: 0;
+    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+body{
+    background-color: #ECF0F1;
+}
+#canvas{
+    display:none;
+}
+.covidLogo{
+    display:none;
+}
+#topbanner{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 300;
+    font-stretch: extra-condensed;
+    background-color: #2980B9;
+    color: #ECF0F1;
+}
+.yourstategrid{
+    width:95%;
+    display: grid;
+    margin: 10px auto;
+    grid-template-columns: 50% 50%;
+    column-gap: 5px;
+}
+.subgrid{
+    display: grid;
+    grid-template-rows: auto;
+    background-color: #3498DB;
+    text-align: center;
+    color:white;
+
+}
+
+.topspace{
+    display: none;
+}
+
+#topbar{
+    position:sticky;
+    top:0;
+    margin-top: 0px;
+    visibility:hidden;
+    overflow: auto;
+    z-index: 50;
+}
+#topbar1{
+    position: sticky;
+    top:25px;
+    z-index: 49;
+    background-image: linear-gradient(to right,#1700E8,#9600E8);
+}
+#topbar2{
+    position: sticky;
+    top:50px;
+    z-index: 49;
+    visibility: visible;
+    background-image: linear-gradient(to right,#1700E8,#9600E8);
+}
+#toptable{
+    width: 95;
+    height:1em;
+    text-align: left;
+    margin:0 auto;
+   
+}
+.otherbar{
+    position: sticky;
+    background-image: linear-gradient(to right,#1700E8,#9600E8);
+    top:8.1vw;
+    visibility:hidden;
+}
+.othertables{
+    width: 100%;
+   
+    text-align: left;
+    margin:0 auto;
+}
+td{
+    vertical-align: middle;
+       width:20%;
+       
+}
+th{
+    
+    width:20%;
+}
+
+.topdesign{
+    width: 100%;
+ margin: 0 auto;
+ background-image: linear-gradient(to right,#9600E8,#EA00FF);
+
+}
+.design{
+ 
+ width: 100%;
+ margin: auto;
+ border-top: #0D0D0D;
+ background-color: rgba(24,89,89,0.8);
+ 
+}
+.tableheadtext{
+    font-size: 15px;
+    color:white;
+    
+    
+}
+.tabletext{
+    
+    color:white;
+    font-size: 11px;
+    font-stretch: ultra-condensed;
+    font-weight: 200;
+  
+}
+.delta{
+    
+    color: #FF003C;
+    font-size: 10px;
+    
+    
+}
+.deltaRecover{ 
+    color:greenyellow;
+    font-size: 10px;
+   
+}
+
+@media only screen and (min-width: 700px){
 body{
     margin:0px;
 
 }
+*{
+    margin:0;
+    padding:0;
+}
+#topbanner{
+    display:none;
+}
 #canvas{
+    display:block;
     background:#052849; 
       /* background-image:linear-gradient(to bottom right,#4F8C8C,#185959);*/
    /* background-image: radial-gradient(#014023, #012615, #000D06);#474747*/
     position :fixed;
     top:0px;
     left:0px;
+}
+.yourstate{
+    display: none;
 }
 .parent{
    position: relative;
@@ -172,4 +322,7 @@ th{
     font-size: 1vw;
     padding: 2px 2px;
     
+}
+
+
 }

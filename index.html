@@ -15,30 +15,54 @@
         <div><img class='covidLogo'src='loading.svg'></div>
     </section>
 
-    <div class='design'>  
-        <div class='otherbar' >
-            <table class='othertables'>
-                <tr>
-            <td><span class='tabletext' id='ccity'>updating </span></td>
-            <td><span class='tabletext'id='cconfirmed'>updating </span><span class='delta' id='del_ccases'></span></td>
-            <td> <span class='tabletext'id='cactive'>updating</span></td>
-            <td><span class='tabletext'id='crecovered'>updating </span><span class='deltaRecover'id='del_crecovered'></span></td>
-            <td><span class='tabletext'id='cdeath'>updating</span><span class='delta' id='del_cdeath'></span></td>
-            </tr> 
-            </table>
+<div id="topbanner">
+    <div style="display:inline-block"><span style="margin: auto;font-weight: bold;">COVID-19</span></div>
+    <div><span style='margin:auto;color:white; font-weight: 500;'>I N D I A </span></div>
+</div>
+
+<section class="yourstategrid">
+    <div class='subgrid'>
+    
+        
+        <span  id='cstate'>Your State </span>
+       <span id='sconfirmed' style='color: white;font-size: 18px;'>cases </span>
+       <div> <span style='color: #E74C3C;font-size: 40px;'id='del_scases'></span>
+        <span style='font-size: 10px;color:white;'> Today</span></div>
+              
+        <span class='tabletext'id='sdeath'>deaths</span><span class='delta' id='del_sdeath'></span>
+       
+        
+    </div>
+    
+    <div class='subgrid'>  
+        <div >
+            
+        <span class='tabletext' id='ccity'>updating </span>
+            <span class='tabletext'id='cconfirmed'>updating </span><span class='delta' id='del_ccases'></span>
+            <span class='tabletext'id='cactive'>updating</span>
+            <span class='tabletext'id='crecovered'>updating </span><span class='deltaRecover'id='del_crecovered'></span>
+            <span class='tabletext'id='cdeath'>updating</span><span class='delta' id='del_cdeath'>
+            </span>
+            
+        
             
         </div>
         
     </div>
-    
+</section>
+    <!--wrapper for main table-->
 <container class='wrapper'>
     
-<div style='height: 300px;'></div>
+<div class='topspace'style='height: 300px;'></div>
 <div id="topbar"  >     
     <div class="topdesign">   
     <table id='toptable'>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            
+         </colgroup>
              <tr>
-             <th><span class='tableheadtext'>COVID-19</span></th>
+             <th><span class='tableheadtext'>State</span></th>
              <th><span class='tableheadtext'>Total </span></th>
              <th><span class='tableheadtext'>Active </span></th>
              <th><span class='tableheadtext'>Recovered </span></th>
@@ -50,6 +74,10 @@
 </div>
     <div class='design'id='topbar1'style='background-color:rgba(24,89,89,1);'>
     <table class='othertables'>
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            
+         </colgroup>
              <tr>
              <td><span class='tabletext'>INDIA</span></td>
              <td><span  class='tabletext'id='tcases'>updating</span><span class ='delta' id='del_tcases'></span></td>
@@ -64,21 +92,7 @@
 <!--topbar ends here-->
   
    
-  
-    <div id='topbar2'>
-        <div class="design"style='background-color:rgba(24,89,89,1);'>
-        <table class='othertables'>
-            <tr>
-        <td><span class='tabletext' id='cstate'>updating </span></td>
-        <td><span class='tabletext'id='sconfirmed'>updating </span><span class='delta' id='del_scases'></span></td>
-        <td> <span class='tabletext'id='sactive'>updating</span></td>
-        <td><span class='tabletext'id='srecovered'>updating </span><span class='deltaRecover'id='del_srecovered'></span></td>
-        <td><span class='tabletext'id='sdeath'>updating</span><span class='delta' id='del_sdeath'></span></td>
-        </tr> 
-        </table>
-        </div>
-    </div>
-   
+      
     <container class='wrapper2'> 
      <div class="gap"></div>
    
