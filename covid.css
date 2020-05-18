@@ -38,6 +38,9 @@ body{
     width: 100%;
     position: relative;
 }
+img{
+    display: none;
+}
 #topbanner{
     display: block;
     width: 100%;
@@ -51,6 +54,7 @@ body{
 }
 #svgimage{
    width: 100%;
+   margin-top: 20px;
 }
 
 

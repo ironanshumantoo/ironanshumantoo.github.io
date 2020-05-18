@@ -21,8 +21,11 @@
 </div>
 
 <!--visual map-->
-
-<div id='svgimage'> <svg  xmlns:mapsvg="http://mapsvg.com"
+<img id='map' src='india.svg'>
+<div id='svgimage'>  
+      
+     <canvas id='visualcanvasmap'></canvas>
+    <!--map with svg <svg  xmlns:mapsvg="http://mapsvg.com"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:cc="http://creativecommons.org/ns#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -31,7 +34,9 @@
     version="1.1"
     
     id="indiamap"
-    viewBox='0 0 611.85999 695.70178' >  </svg></div>
+    viewBox='0 0 611.85999 695.70178' >  </svg>-->
+   
+</div>
 
 <!--map ends here-->
 
@@ -122,5 +127,6 @@
 <!--header ends here-->
 </body>
 <script src='covid.js'></script>
-<script src='visualmap.js'></script>
+
+<script src='visualcanvasmap.js'></script>
 </html>
