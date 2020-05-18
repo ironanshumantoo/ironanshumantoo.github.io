@@ -34,11 +34,15 @@ body{
 .covidLogo{
     display:none;
 }
+.wrapper{
+    width: 100%;
+    position: relative;
+}
 #topbanner{
     display: block;
     width: 100%;
     text-align: center;
-    padding: 5px;
+    
     font-size: 20px;
     font-weight: 300;
     font-stretch: extra-condensed;
@@ -114,7 +118,9 @@ th{
     
     width:20%;
 }
-
+.tableborderline{
+    display:block;
+}
 .topdesign{
     width: 100%;
  margin: 0 auto;
@@ -138,7 +144,7 @@ th{
 .tabletext{
     
     color:white;
-    font-size: 11px;
+    font-size: 12px;
     font-stretch: ultra-condensed;
     font-weight: 200;
   
@@ -258,7 +264,9 @@ th{
     
     width:20%;
 }
-
+.tableborderline{
+    display: none;
+}
 .tableheadtext{
     font-size: 2vw;
     color:black;

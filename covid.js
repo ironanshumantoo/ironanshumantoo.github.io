@@ -246,7 +246,7 @@ $(document).ready(function(){
                        </div>
                        
                        <div class='intergap'></div>
-                        <div style="height:1px;background-color:black;"></div>
+                        <div class='tableborderline' style="height:1px;background-color:black;"></div>
                         </div>
                      `
                    );
