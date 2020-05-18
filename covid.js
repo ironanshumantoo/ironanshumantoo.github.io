@@ -286,7 +286,7 @@ $(document).ready(function(){
                             $('#del_crecovered').text("+"+cityWiseData.delta.recovered);
                             $('#del_cdeath').text("+"+cityWiseData.delta.deceased);
                             console.log("inner"+currState);
-                            $('.wrapper2').append('<div>hey its me</div>');
+                            $('.wrapper2').append('<div>hey its me : Anshuman</div>');
                         }
                     });
                 }

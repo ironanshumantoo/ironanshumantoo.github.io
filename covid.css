@@ -108,7 +108,8 @@ img{
 }
 .otherbar{
     position: sticky;
-    background-image: linear-gradient(to right,#1700E8,#9600E8);
+    background-color: #1700E8;
+   /* background-image: linear-gradient(to right,#1700E8,#9600E8);*/
     top:8.1vw;
     visibility:hidden;
 }
@@ -141,7 +142,7 @@ th{
  width: 100%;
  margin: auto;
  border-top: #0D0D0D;
- background-color: rgba(24,89,89,0.8);
+ /*background-color: rgba(24,89,89,0.8);*/
  
 }
 .tableheadtext{
