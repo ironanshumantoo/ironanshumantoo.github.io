@@ -259,26 +259,7 @@ $(document).ready(function(){
        //otherbar visibility
        $('.otherbar').css('visibility','visible');
        //sticky other bar hideshow
-       $(document).scroll(function(){
-        console.log('scroll');
-        for(var i=1;i<data.statewise.length;i++)
-        {var hideshowid='#hideshow'+i;
-        
-         var position=$(hideshowid).offset().top;
-         //console.log(hideshowid," ",position);
-            if(position>81 && position<85)
-            {var previd='#hideshow'+(i-1);
-              $(previd).css('visibility','hidden');
-              console.log(previd,'hidden');
-              
-                break;
-            }
-            else{var previd='#hideshow'+(i-1);
-                $(previd).css('visibility','visible');
-            }
-
-        }
-         });
+       //did not work
 
 
 

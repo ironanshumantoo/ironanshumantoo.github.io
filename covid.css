@@ -49,6 +49,11 @@ body{
     background-color: #2980B9;
     color: #ECF0F1;
 }
+#svgimage{
+   width: 100%;
+}
+
+
 .yourstategrid{
     width:95%;
     display: grid;
