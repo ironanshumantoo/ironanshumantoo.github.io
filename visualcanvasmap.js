@@ -38,7 +38,7 @@ var stateposition=[
     {
         'code':'dl',
         'x':'193',
-        'y':'216',
+        'y':'226',
     },
     {
         'code':'rj',
@@ -82,7 +82,7 @@ var stateposition=[
     },
     {
         'code':'kl',
-        'x':'183',
+        'x':'133',
         'y':'641',
     },
     {
@@ -332,7 +332,8 @@ canvas2.height=window.innerWidth*1.1371;
 var c2=canvas2.getContext('2d');
 
 var map=document.getElementById('map');
-
+var xmulitplier=canvas2.width/611.85999;//to map different canvas sized
+var ymultiplier=canvas2.height/695.70178;
 
 window.addEventListener('load',function(){
     c2.drawImage(map,0,0,canvas2.width,canvas2.height);
@@ -343,9 +344,43 @@ window.addEventListener('load',function(){
 
 $.getJSON('https://api.covid19india.org/states_daily.json',function(data){
 
-    var  fpsInterval, startTime, now, then, elapsed,speed=0,framesps=3,pos=0,datalength=data.states_daily.length;
+    var  fpsInterval, startTime, now, then, elapsed,framesps=5,pos=0,datalength=data.states_daily.length;
+//collecting data
+var confirmeddata=[],dates=[],dailyconfirmedcases=[];
 
+for(var i=0;i<data.states_daily.length;i+=3)
+{
+         var tempdailyconfirmed=[];
+        for(var j=0;j<stateposition.length;j++)
+        {
+           $.each(data.states_daily[i],function(stateCode,cases){
+       
+                 if(stateCode==stateposition[j].code)
+                  { 
+                      tempdailyconfirmed.push(cases);                            
+                   }
 
+            });
+                      
+
+         }
+         tempdailyconfirmed.push(data.states_daily[i].tt);
+         dailyconfirmedcases.push(tempdailyconfirmed);
+         dates.push(data.states_daily[i].date);
+        
+        }
+// creating confirmed data from daily data timer series
+ confirmeddata=dailyconfirmedcases;
+ 
+ for(var i=1;i<confirmeddata.length;i++)
+ {   
+     for(var j=0;j<32;j++)
+     confirmeddata[i][j]=Number(confirmeddata[i][j])+Number( confirmeddata[i-1][j]);
+ }
+ console.log(confirmeddata[dates.length-1][7]);
+ //calculate interval between daily cases
+console.log(dates);
+console.log(confirmeddata);
 // initialize the timer variables and start the animation
 
 function startAnimating(fps) {
@@ -355,7 +390,11 @@ function startAnimating(fps) {
     animate();
 }
 function animate(){
+    if(pos==dates.length)
+    cancelAnimationFrame(animate);
+    else
     requestAnimationFrame(animate);
+
     now = Date.now();
     elapsed = now - then;
    
@@ -363,30 +402,97 @@ function animate(){
 
     if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
-        c2.clearRect(0,0,canvas2.width,canvas2.height);
-         c2.drawImage(map,0,0,canvas2.width,canvas2.height);
-        for(var j=0;j<stateposition.length;j++)
-        {
-           $.each(data.states_daily[pos],function(stateCode,cases){
        
-                 if(stateCode==stateposition[j].code)
-                  { var nx=(canvas2.width/611.85999)*stateposition[j].x;
-                    var ny=(canvas2.height/695.70178)*stateposition[j].y;
-                      c2.font='3vw Arial';
-                  
-                    c2.fillStyle='white';
-                    c2.fillText(cases,nx,ny);
-                   }
-
-            });
-
-
-         }
-         
-         if(pos<datalength-3)
-         pos+=3;
+           
+        c2.clearRect(0,0,canvas2.width,canvas2.height);
+        c2.drawImage(map,0,0,canvas2.width,canvas2.height);
+        
+        for(var j=0;j<dailyconfirmedcases[pos].length-1;j++)
+        { 
+        var nx=ymultiplier*stateposition[j].x;
+        var ny=xmulitplier*stateposition[j].y;
+        c2.font='4vw Arial';
+              
+        c2.fillStyle='white';
+       
+         c2.fillText(dailyconfirmedcases[pos][j],nx,ny);
+        
+        }
+        c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
+            
+           racingNumbers(framesps,dailyconfirmedcases,pos,stateposition,dates);
+        
+        
+        
+        if(pos<dates.length)
+        pos++; 
+        
+            
     }
 }
 startAnimating(framesps);
 
 });
+
+
+function racingNumbers(frames,dailyconfirmedcases,pos,stateposition,dates){
+    
+    
+var  fps=10*frames,then,startTime,now,elapsed,p=1;
+
+
+    function startAnimating(fps) {
+        fpsInterval = 1000 / fps;
+        then = Date.now();
+        startTime = then;
+        animate();
+    }
+
+    function animate(){
+        if(p==10)
+        cancelAnimationFrame(animate);
+        else       
+        requestAnimationFrame(animate);
+        now = Date.now();
+        elapsed = now - then;
+       
+        // if enough time has elapsed, draw the next frame
+    
+        if (elapsed > fpsInterval) {
+            then = now - (elapsed % fpsInterval);
+            c2.clearRect(0,0,canvas2.width,canvas2.height);
+            c2.drawImage(map,0,0,canvas2.width,canvas2.height);
+            for(var j=0;j<31;j++)
+            {  
+                
+                    var nx=ymultiplier*stateposition[j].x;
+                    var ny=xmulitplier*stateposition[j].y;
+                    c2.font='4vw Arial';
+                    c2.fillStyle='white';
+                    if(pos==(dates.length-1))
+                    c2.fillText(dailyconfirmedcases[dates.length-1][j],nx,ny);
+                    else{
+                          var print=p*((Number(dailyconfirmedcases[pos+1][j])-Number(dailyconfirmedcases[pos][j]))/10);
+                   
+                 // console.log(p);   
+                     c2.fillText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
+                    }
+                
+            }
+            //if(pos==(dates.length-1))
+         //   c2.fillText(dates[dates.length-1],362*xmulitplier,98*ymultiplier);
+           // else
+           c2.font='30px Verdana';
+           var gradient = c2.createLinearGradient(0, 0, canvas2.width, 0);
+            gradient.addColorStop("0"," #1700E8");
+            gradient.addColorStop("0.5", "#9600E8");
+           
+        // Fill with gradient
+            c2.fillStyle = gradient;
+            c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
+
+               p++;
+        }
+    }
+    startAnimating(fps);
+}
