@@ -10,18 +10,28 @@
 svg{
     pointer-events: auto;
 }
+.sliderbtn{
+    width:30px;
+    height:30px;
+   vertical-align: middle;
+   background: "#9600E8";
+}
 .slider{
     width: 100%;
     text-align: center;
     margin:10px auto;
+    vertical-align: middle;
 }
 .rangeselectors{
     position: relative;
+    vertical-align: middle;
     -webkit-appearance: none;
-    width:90%;
+    width:80%;
     height: 5px;
+    margin:auto;
   border-radius: 5px;  
   background: #d3d3d3;
+  
   outline: none;
    
 
@@ -32,7 +42,7 @@ svg{
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: #024873;
+    background:#024873 ;
     cursor: pointer;
   }
   
