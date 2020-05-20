@@ -88,6 +88,14 @@ img{
     background: #024873;
     cursor: pointer;
   }
+  #dateholder{
+      margin:2px auto;
+      background-color: #024873;
+      color: white;
+      font-size: 6vw;
+      padding: 1vw 2vw;
+      border-radius: 15px;
+  }
   #mapdisplay{
       position: relative;
       width:100vw;

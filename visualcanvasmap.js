@@ -329,10 +329,12 @@ var dateSelector=document.getElementById('dateselector');
 var canvas2=document.getElementById('visualcanvasmap');
 canvas2.width=window.innerWidth;
 canvas2.height=window.innerWidth*1.1371;
+canvas2.style.width=611;
+canvas2.style.height=695;
 var c2=canvas2.getContext('2d');
-
-var map=document.getElementById('map');
 //variables
+var map=document.getElementById('map');
+var dateholder=document.getElementById('dateholder');
 var xmulitplier=canvas2.width/611.85999;//to map different canvas sized
 var ymultiplier=canvas2.height/695.70178;
 
@@ -433,9 +435,10 @@ function animate(){
              c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
             
             }
-            c2.fillStyle='black';
+            c2.font='8vw Arial';
+            c2.fillStyle='#1700E8';
             c2.fillText(dates[currpos],362*xmulitplier,98*ymultiplier);
-            
+            $('#dateholder').text(dates[currpos]);
         }
         
            if(running){
@@ -454,7 +457,7 @@ function animate(){
         
         }
         c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
-            
+        $('#dateholder').text(dates[pos]);   
            racingNumbers(framesps,dailyconfirmedcases,pos,stateposition,dates);
         
         
@@ -525,7 +528,7 @@ var  fps=10*frames,then,startTime,now,elapsed,p=1;
         // Fill with gradient
             c2.fillStyle = gradient;
             c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
-
+            $('#dateholder').text(dates[pos]);
                p++;
         }
     }
