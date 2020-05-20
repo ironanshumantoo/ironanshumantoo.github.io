@@ -337,11 +337,13 @@ var map=document.getElementById('map');
 var dateholder=document.getElementById('dateholder');
 var xmulitplier=canvas2.width/611.85999;//to map different canvas sized
 var ymultiplier=canvas2.height/695.70178;
+var sliderNextButton=document.getElementById('nextbtn');
+var sliderPreviousButton=document.getElementById('prevbtn');
 
 window.addEventListener('load',function(){
    // c2.drawImage(map,0,0,canvas2.width,canvas2.height);
     console.log('fininshed loading');
-    console.log(map.width,'map');
+    //console.log(map.width,'map');
 });
 //drawmap
 
@@ -387,15 +389,29 @@ console.log(dateSelector.value);
      for(var j=0;j<32;j++)
      confirmeddata[i][j]=Number(confirmeddata[i][j])+Number( confirmeddata[i-1][j]);
  }
- console.log(confirmeddata[dates.length-1][7]);
- //calculate interval between daily cases
-console.log(dates);
-console.log(confirmeddata);
+ 
+
 //load map
 mapRefresh();
 // initialize the timer variables and start the animation
 var running=true;
-
+//slider adjacent buttons
+sliderNextButton.onclick=function(){
+    running=false;
+    if(dateSelector.value!=dates.length-1)
+   {mapValueChange(Number(dateSelector.value)+Number(1),dateholder,running,dailyconfirmedcases,dates);
+ 
+        dateSelector.value++;
+   }
+}
+sliderPreviousButton.onclick=function(){
+running=false;
+if(dateSelector.value!=0){
+         mapValueChange(dateSelector.value-1,dateholder,running,dailyconfirmedcases,dates);
+ dateSelector.value=dateSelector.value-1;
+}   
+}
+//
 function startAnimating(fps) {
     fpsInterval = 1000 / fps;
     then = Date.now();
@@ -534,4 +550,26 @@ var  fps=10*frames,then,startTime,now,elapsed,p=1;
         }
     }
     startAnimating(fps);
+}
+
+function mapValueChange(currpos,dateholder,running,dailyconfirmedcases,dates){
+    running=false;
+c2.clearRect(0,0,canvas2.width,canvas2.height);
+// c2.drawImage(map,0,0,canvas2.width,canvas2.height);
+
+for(var j=0;j<dailyconfirmedcases[currpos].length-1;j++)
+{ 
+var nx=ymultiplier*stateposition[j].x;
+var ny=xmulitplier*stateposition[j].y;
+c2.font='4vw Arial';
+      
+c2.fillStyle='#DD3333';
+
+ c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
+
+}
+c2.font='8vw Arial';
+c2.fillStyle='#1700E8';
+//c2.fillText(dates[currpos],362*xmulitplier,98*ymultiplier);
+dateholder.innerHTML=dates[currpos];
 }
