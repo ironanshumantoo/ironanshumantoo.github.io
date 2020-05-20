@@ -31,6 +31,10 @@ body{
 #canvas{
     display:none;
 }
+
+.dummycanvas{
+    display:none;
+}
 .covidLogo{
     display:none;
 }
@@ -52,11 +56,54 @@ img{
     background-color: #2980B9;
     color: #ECF0F1;
 }
-#svgimage{
+.slider{
+    width: 100%;
+    text-align: center;
+    margin:10px auto;
+}
+.rangeselectors{
+    -webkit-appearance: none;
+    width:90%;
+    height: 5px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+   
+
+}
+.rangeselectors::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #024873;
+    cursor: pointer;
+  }
+  
+.rangeselectors::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #024873;
+    cursor: pointer;
+  }
+  #mapdisplay{
+      position: relative;
+      width:100vw;
+      height:113.71vw;
+  }
+.svgimagebound{
+    position: absolute;
+    top:0px;
+    left:0px;
    width: 100%;
    margin-top: 20px;
 }
-
+#visualcanvasmap{
+    background:transparent;
+        
+}
 
 .yourstategrid{
     width:95%;

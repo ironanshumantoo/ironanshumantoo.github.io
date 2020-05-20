@@ -20,14 +20,20 @@
     <div style="display:inline-block"><span style="margin: auto;font-weight: bold;">COVID-19</span></div>
     <div><span style='margin:auto;color:white; font-weight: bold;'>I N D I A </span></div>
 </div>
-
+<!-- sllider-->
+<div class="slider">
+    <input type="range" class="rangeselectors" id="dateselector">
+</div>
+<!--slider ends-->
 <!--visual map-->
 <img id='map' src='india.svg'>
-<div id='svgimage'>  
-      
-     <canvas id='visualcanvasmap'></canvas>
-    <!--map with svg--> 
-    <!--<svg  xmlns:mapsvg="http://mapsvg.com"
+
+<section id='mapdisplay'>
+<div class='svgimagebound' id='svgmap'>  
+    
+     
+    <!--map with svg-->
+    <svg  xmlns:mapsvg="http://mapsvg.com"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:cc="http://creativecommons.org/ns#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -36,10 +42,13 @@
     version="1.1"
     
     id="indiamap"
-    viewBox='0 0 611.85999 695.70178' >  </svg>-->
+    viewBox='0 0 611.85999 695.70178' >  </svg>
    
 </div>
-
+<div class="svgimagebound">
+<canvas id='visualcanvasmap'></canvas>
+</div>
+</section>
 <!--map ends here-->
 
 <section class="yourstategrid">
