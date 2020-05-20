@@ -1,3 +1,71 @@
-#IN-UP:hover{
-    fill:#EA00FF;
+#IN-UP:hover, #IN-BR:hover, #IN-PB:hover ,#IN-RJ:hover ,#IN-AN:hover,#IN-AP:hover,#IN-AR:hover
+,#IN-AS:hover,#IN-CH:hover,#IN-CT:hover,#IN-DD:hover,#IN-DL:hover,#IN-DN:hover,#IN-GA:hover
+,#IN-GJ:hover,#IN-HP:hover,#IN-HR:hover,#IN-JH:hover,#IN-JK:hover,#IN-KA:hover,#IN-KL:hover
+,#IN-LD:hover,#IN-MH:hover,#IN-ML:hover,#IN-MN:hover,#IN-MP:hover,#IN-MZ:hover,#IN-NL:hover,#IN-OR:hover
+,#IN-PY:hover,#IN-SK:hover,#IN-TG:hover,#IN-TN:hover,#IN-TR:hover,#IN-UT:hover,#IN-WB:hover{
+    fill:yellow;
+}
+
+
+svg{
+    pointer-events: auto;
+}
+.slider{
+    width: 100%;
+    text-align: center;
+    margin:10px auto;
+}
+.rangeselectors{
+    position: relative;
+    -webkit-appearance: none;
+    width:90%;
+    height: 5px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+   
+
+}
+.rangeselectors::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #024873;
+    cursor: pointer;
+  }
+  
+.rangeselectors::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #024873;
+    cursor: pointer;
+  }
+  #dateholder{
+      margin:2px auto;
+      background-image:linear-gradient(to right,#1700E8,#9600E8);
+      color: white;
+      font-size: 6vw;
+      padding: 1vw 2vw;
+      border-radius: 15px;
+  }
+  #mapdisplay{
+    position: relative;
+    width:100vw;
+    height:113.71vw;
+}
+.svgimagebound{
+    position: absolute;
+    top:0px;
+    left:0px;
+   width: 100%;
+   margin-top: 10px;
+   pointer-events: none;
+}
+#visualcanvasmap{
+    background:transparent;
+        pointer-events: none;
+        width:100%;
 }

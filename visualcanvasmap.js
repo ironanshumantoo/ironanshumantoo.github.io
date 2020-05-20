@@ -324,7 +324,7 @@ for(var i=0;i<stateposition.length;i++)
 $('#svgimage').html($('#svgimage').html());
 */
 //elements html
-var dateSelector=document.getElementById('dateselector');
+var dateSelector=document.querySelector('#dateselector');
 //visualcanvasmap
 var canvas2=document.getElementById('visualcanvasmap');
 canvas2.width=window.innerWidth;
@@ -417,7 +417,7 @@ function animate(){
         then = now - (elapsed % fpsInterval);
 
        
-          dateSelector.oninput=datechange;
+          dateSelector.oninput=datechange;          
         function datechange(){
             running=false;
             var currpos=dateSelector.value;
@@ -437,8 +437,8 @@ function animate(){
             }
             c2.font='8vw Arial';
             c2.fillStyle='#1700E8';
-            c2.fillText(dates[currpos],362*xmulitplier,98*ymultiplier);
-            $('#dateholder').text(dates[currpos]);
+            //c2.fillText(dates[currpos],362*xmulitplier,98*ymultiplier);
+            dateholder.innerHTML=dates[currpos];
         }
         
            if(running){
@@ -456,8 +456,9 @@ function animate(){
          c2.fillText(dailyconfirmedcases[pos][j],nx,ny);
         
         }
-        c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
-        $('#dateholder').text(dates[pos]);   
+       // c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
+        dateholder.innerHTML=dates[pos];
+        dateSelector.value=pos;
            racingNumbers(framesps,dailyconfirmedcases,pos,stateposition,dates);
         
         
@@ -520,15 +521,15 @@ var  fps=10*frames,then,startTime,now,elapsed,p=1;
             //if(pos==(dates.length-1))
          //   c2.fillText(dates[dates.length-1],362*xmulitplier,98*ymultiplier);
            // else
-           c2.font='30px Verdana';
-           var gradient = c2.createLinearGradient(0, 0, canvas2.width, 0);
-            gradient.addColorStop("0"," #1700E8");
-            gradient.addColorStop("0.5", "#9600E8");
-           
+          // c2.font='30px Verdana';
+           //var gradient = c2.createLinearGradient(0, 0, canvas2.width, 0);
+           // gradient.addColorStop("0"," #1700E8");
+           // gradient.addColorStop("0.5", "#9600E8");
+           //
         // Fill with gradient
-            c2.fillStyle = gradient;
-            c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
-            $('#dateholder').text(dates[pos]);
+           // c2.fillStyle = gradient;
+            //c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
+            //dateholder.innerHTML=dates[pos];
                p++;
         }
     }

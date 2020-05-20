@@ -53,66 +53,10 @@ img{
     font-size: 20px;
     font-weight: 300;
     font-stretch: extra-condensed;
-    background-color: #2980B9;
+   background-color: #1700E8;
+    /*background-image: linear-gradient(to right,#1700E8,#9600E8);*/
     color: #ECF0F1;
 }
-.slider{
-    width: 100%;
-    text-align: center;
-    margin:10px auto;
-}
-.rangeselectors{
-    -webkit-appearance: none;
-    width:90%;
-    height: 5px;
-  border-radius: 5px;  
-  background: #d3d3d3;
-  outline: none;
-   
-
-}
-.rangeselectors::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #024873;
-    cursor: pointer;
-  }
-  
-.rangeselectors::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #024873;
-    cursor: pointer;
-  }
-  #dateholder{
-      margin:2px auto;
-      background-color: #024873;
-      color: white;
-      font-size: 6vw;
-      padding: 1vw 2vw;
-      border-radius: 15px;
-  }
-  #mapdisplay{
-      position: relative;
-      width:100vw;
-      height:113.71vw;
-  }
-.svgimagebound{
-    position: absolute;
-    top:0px;
-    left:0px;
-   width: 100%;
-   margin-top: 20px;
-}
-#visualcanvasmap{
-    background:transparent;
-        
-}
-
 .yourstategrid{
     width:95%;
     display: grid;
