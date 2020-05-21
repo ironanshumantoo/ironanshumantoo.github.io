@@ -400,18 +400,26 @@ var running=true;
 //slider adjacent buttons
 sliderNextButton.onclick=function(){
     running=false;
+    $('#prevbtn').css('opacity','1');
     if(dateSelector.value!=dates.length-1)
    {mapValueChange(Number(dateSelector.value)+Number(1),dateholder,running,dailyconfirmedcases,dates);
  
         dateSelector.value++;
    }
+   else{
+    $('#nextbtn').css('opacity','0.3');
+
+   }
 }
 sliderPreviousButton.onclick=function(){
 running=false;
+$('#nextbtn').css('opacity','1');
 if(dateSelector.value!=0){
          mapValueChange(dateSelector.value-1,dateholder,running,dailyconfirmedcases,dates);
  dateSelector.value=dateSelector.value-1;
 }   
+else 
+$('#prevbtn').css('opacity','0.3');
 }
 //
 function startAnimating(fps) {
@@ -435,12 +443,26 @@ function animate(){
 
     if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
+        if(pos==dates.length-1)
+            $('#nextbtn').css('opacity','0.3');
+        
 
-       
           dateSelector.oninput=datechange;          
         function datechange(){
             running=false;
             var currpos=dateSelector.value;
+            
+            if(currpos==dates.length-1)
+            $('#nextbtn').css('opacity','0.3');
+            else
+            $('#nextbtn').css('opacity','1');
+            if(currpos==0)
+            $('#prevbtn').css('opacity','0.3');
+            else
+            $('#prevbtn').css('opacity','1');
+
+            
+            
             c2.clearRect(0,0,canvas2.width,canvas2.height);
            // c2.drawImage(map,0,0,canvas2.width,canvas2.height);
             
