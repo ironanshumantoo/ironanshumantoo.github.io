@@ -9,6 +9,10 @@
 svg{
     pointer-events: auto;
 }
+#indiamap{
+    -webkit-filter: drop-shadow( 4px 4px 7px rgba(0, 0, 0, .7));
+  filter: drop-shadow( 4px 4px 7px rgba(0, 0, 0, .7));
+}
 .sliderbtn{
     width:30px;
     height:30px;
@@ -29,7 +33,7 @@ svg{
     height: 5px;
     margin:auto;
   border-radius: 5px;  
-  background: #d3d3d3;
+  background: black;
   
   outline: none;
    

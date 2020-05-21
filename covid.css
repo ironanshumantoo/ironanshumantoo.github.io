@@ -26,7 +26,7 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 body{
-    background-color: #ECF0F1;
+    background-color: #B9CFD4;/* ECF0F1*/
 }
 #gototop{
     height:35px;width:35px;position:fixed;bottom:20px;right:20px;
@@ -68,7 +68,7 @@ body{
 }
 .topbannertext{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: -webkit-linear-gradient(#F5F5F0, #CACAC6);
+    background: -webkit-linear-gradient(#F5F5F0, rgb(170, 170, 167));
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
    
@@ -132,7 +132,7 @@ body{
 }
 .otherbar:hover{
     background:#E75BFF;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 .othertables{
     width: 100%;
@@ -176,7 +176,7 @@ th{
     
     color:white;
     font-size: 12px;
-    font-stretch: ultra-condensed;
+   
     font-weight: 200;
   
 }

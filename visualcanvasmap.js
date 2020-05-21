@@ -330,8 +330,8 @@ var dateSelector=document.querySelector('#dateselector');
 var canvas2=document.getElementById('visualcanvasmap');
 canvas2.width=window.innerWidth;
 canvas2.height=window.innerWidth*1.1371;
-canvas2.style.width=611;
-canvas2.style.height=695;
+canvas2.style.width=611*5;
+canvas2.style.height=695*5;
 var c2=canvas2.getContext('2d');
 //variables
 var map=document.getElementById('map');
@@ -400,6 +400,7 @@ var running=true;
 //slider adjacent buttons
 sliderNextButton.onclick=function(){
     running=false;
+
     $('#prevbtn').css('opacity','1');
     if(dateSelector.value!=dates.length-1)
    {mapValueChange(Number(dateSelector.value)+Number(1),dateholder,running,dailyconfirmedcases,dates);
@@ -411,6 +412,7 @@ sliderNextButton.onclick=function(){
 
    }
 }
+
 sliderPreviousButton.onclick=function(){
 running=false;
 $('#nextbtn').css('opacity','1');
@@ -422,6 +424,8 @@ else
 $('#prevbtn').css('opacity','0.3');
 }
 //
+
+
 function startAnimating(fps) {
     fpsInterval = 1000 / fps;
     then = Date.now();
@@ -470,10 +474,11 @@ function animate(){
             { 
             var nx=ymultiplier*stateposition[j].x;
             var ny=xmulitplier*stateposition[j].y;
-            c2.font='4vw Arial';
-                  
-            c2.fillStyle='#DD3333';
-           
+            c2.font='bold 4vw Arial';
+             c2.strokeStyle='#050259';    
+             c2.lineWidth=2; 
+            c2.fillStyle='white';
+            c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
              c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
             
             }
@@ -491,10 +496,11 @@ function animate(){
         { 
         var nx=ymultiplier*stateposition[j].x;
         var ny=xmulitplier*stateposition[j].y;
-        c2.font='4vw Arial';
-              
-        c2.fillStyle='#DD3333';
-       
+        c2.font='bold 4vw Arial';
+        c2.strokeStyle='#050259';  
+        c2.lineWidth=2; 
+        c2.fillStyle='white';
+        c2.strokeText(dailyconfirmedcases[pos][j],nx,ny);
          c2.fillText(dailyconfirmedcases[pos][j],nx,ny);
         
         }
@@ -548,14 +554,18 @@ var  fps=10*frames,then,startTime,now,elapsed,p=1;
                 
                     var nx=ymultiplier*stateposition[j].x;
                     var ny=xmulitplier*stateposition[j].y;
-                    c2.font='4vw Arial';
-                    c2.fillStyle='#DD3333';
+                    c2.font='bold 4vw Arial';
+                    c2.strokeStyle='#050259';  
+                    c2.fillStyle='white'; c2.lineWidth=1; 
                     if(pos==(dates.length-1))
-                    c2.fillText(dailyconfirmedcases[dates.length-1][j],nx,ny);
+                    {c2.strokeText(dailyconfirmedcases[pos][j],nx,ny);
+                        c2.fillText(dailyconfirmedcases[pos][j],nx,ny);
+                    }
                     else{
                           var print=p*((Number(dailyconfirmedcases[pos+1][j])-Number(dailyconfirmedcases[pos][j]))/10);
                    
-                 // console.log(p);   
+                 // console.log(p);  
+                 c2.strokeText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
                      c2.fillText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
                     }
                 
@@ -587,10 +597,11 @@ for(var j=0;j<dailyconfirmedcases[currpos].length-1;j++)
 { 
 var nx=ymultiplier*stateposition[j].x;
 var ny=xmulitplier*stateposition[j].y;
-c2.font='4vw Arial';
-      
-c2.fillStyle='#DD3333';
+c2.font='bold 4vw Arial';
+c2.strokeStyle='#050259';  c2.lineWidth=1;  
 
+c2.fillStyle='white';
+c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
  c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
 
 }
@@ -638,13 +649,22 @@ function gotostate(){
         $('.tabletext').css('color','white');
         $('.otherbar').css('background-color','#1700E8');
         $('#rank'+rank).css('background-color','#E75BFF');
-        $('#rank'+rank).css('color','black');
+       
+        $('.otherbar').hover(function(){
+            $(this).css("background-color", "#E75BFF");
+            }, function(){
+            $(this).css("background-color", "#1700E8");
+          });
    
     });
     }
     }
     document.getElementById('gototop').addEventListener("click",function(){
         $('.otherbar').css('background-color','#1700E8');
-
+        $('.otherbar').hover(function(){
+            $(this).css("background-color", "#E75BFF");
+            }, function(){
+            $(this).css("background-color", "#1700E8");
+          });
     });
 }
