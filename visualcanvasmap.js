@@ -443,15 +443,15 @@ function animate(){
 
     if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
-        if(pos==dates.length-1)
+       /* if(pos==dates.length-1)
             $('#nextbtn').css('opacity','0.3');
-        
+        */
 
           dateSelector.oninput=datechange;          
         function datechange(){
             running=false;
             var currpos=dateSelector.value;
-            
+
             if(currpos==dates.length-1)
             $('#nextbtn').css('opacity','0.3');
             else
@@ -635,10 +635,16 @@ function gotostate(){
        var link=linkMaker(rank);
         window.location.href=link;
         //console.log(stateRankList);
+        $('.tabletext').css('color','white');
         $('.otherbar').css('background-color','#1700E8');
-        $('#rank'+rank).css('background-color','#9600E8');
+        $('#rank'+rank).css('background-color','#E75BFF');
+        $('#rank'+rank).css('color','black');
    
     });
     }
     }
+    document.getElementById('gototop').addEventListener("click",function(){
+        $('.otherbar').css('background-color','#1700E8');
+
+    });
 }
