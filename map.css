@@ -46,10 +46,10 @@ svg{
   }
   
 #dateselector::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    background-image: url('coronavirus.svg') ;
+    background: #1700E8;
     cursor: pointer;
   }
   #dateholder{
