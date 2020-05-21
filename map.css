@@ -6,7 +6,6 @@
     fill:yellow;
 }
 
-
 svg{
     pointer-events: auto;
 }
@@ -36,21 +35,21 @@ svg{
    
 
 }
-.rangeselectors::-webkit-slider-thumb {
+#dateselector::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%; 
-    background:#024873 ;
+    background: #1700E8;
     cursor: pointer;
   }
   
-.rangeselectors::-moz-range-thumb {
+#dateselector::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #024873;
+    background-image: url('coronavirus.svg') ;
     cursor: pointer;
   }
   #dateholder{

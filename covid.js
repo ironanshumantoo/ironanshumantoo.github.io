@@ -1,6 +1,7 @@
 //html elements
-
-
+//variables
+var stateRankList=[];
+var stateRankListReady=false;
 
 //mouse position
 mouse=function(x,y){
@@ -227,7 +228,7 @@ $(document).ready(function(){
                {
                    $('.wrapper2').append(` 
                    <div >
-                       <div class='otherbar design' id="hideshow`+i+`" >
+                       <div class='otherbar design' id='rank`+i+`' >
                       
                            <table class="othertables">
                              <colgroup>
@@ -250,12 +251,19 @@ $(document).ready(function(){
                         </div>
                      `
                    );
+                   var rank=[];
+                   rank.push(data.statewise[j].statecode);
+                   rank.push(i);
+                   stateRankList.push(rank);
                     addedStateList.push(data.statewise[j].statecode);
                   // console.log(data.statewise[j]);
                    break;
                }
            }
+           if(i==stateSortedData.length-1)
+           stateRankListReady=true;
        }
+       
        //otherbar visibility
        $('.otherbar').css('visibility','visible');
        //sticky other bar hideshow
@@ -266,6 +274,7 @@ $(document).ready(function(){
       //district wise info
       $.getJSON('https://api.covid19india.org/state_district_wise.json',function(distData){
             //onsole.log(currState);
+        
             $.each(distData,function(statename,statedata){
                 //console.log(statename.toLowerCase());
                 if(distData[statename].statecode==currState)
