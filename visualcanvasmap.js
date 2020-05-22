@@ -342,6 +342,11 @@ var sliderNextButton=document.getElementById('nextbtn');
 var sliderPreviousButton=document.getElementById('prevbtn');
 var settingsCloseButton=document.getElementById('closebtn');
 var settingsButton=document.getElementById('settings');
+var startDate=document.getElementById('startdate');
+var endDate=document.getElementById('enddate');
+var settingsReset=document.getElementById('reset');
+//var settingsDone=document.documentElement('done');
+
 window.addEventListener('load',function(){
    // c2.drawImage(map,0,0,canvas2.width,canvas2.height);
     console.log('fininshed loading');
@@ -360,7 +365,7 @@ settingsCloseButton.addEventListener("click",function(){
 
 $.getJSON('https://api.covid19india.org/states_daily.json',function(data){
 
-    var  fpsInterval, startTime, now, then, elapsed,framesps=5,pos=0,datalength=data.states_daily.length;
+    var  fpsInterval, startTime, now, then, elapsed,framesps=10,pos=0,datalength=data.states_daily.length;
 //collecting data
 var confirmeddata=[],dates=[],dailyconfirmedcases=[];
 
@@ -429,8 +434,9 @@ if(dateSelector.value!=0){
 else 
 $('#prevbtn').css('opacity','0.3');
 }
+//selecting date tange for visualization
+startEndDateRange(dates);
 //
-
 
 function startAnimating(fps) {
     fpsInterval = 1000 / fps;
@@ -592,7 +598,9 @@ var  fps=10*frames,then,startTime,now,elapsed,p=1;
         }
     }
     startAnimating(fps);
+    
 }
+
 
 function mapValueChange(currpos,dateholder,running,dailyconfirmedcases,dates){
     running=false;
@@ -674,3 +682,62 @@ function gotostate(){
           });
     });
 }
+
+function startEndDateRange(dates){
+    var currStartDate='2020-03-14',currEndDate=makeArributeDate(dates[dates.length-1]);
+    var currspeed=10;
+    function month(name){
+        var monthmap=[ ['jan','01'],
+        ['feb','02'],
+        ['mar','03'],
+        ['apr','04'],
+        ['may','05'],
+        ['jun','06'],
+        ['jul','07'],
+        ['aug','08'],
+        ['sep','09'],
+        ['oct','10'],
+        ['nov','11'],
+        ['dec','12'],
+
+        ];
+        for(var i=0;i<monthmap.length;i++)
+        {
+            if(name==monthmap[i][0])
+            return monthmap[i][1];
+        }
+    }
+
+    function makeArributeDate(date){
+        return "20"+date.substring(date.length-2,date.length)+"-"
+        +month(date.substring(3,6).toLowerCase()) +"-"+date.substring(0,2);
+    }
+  
+    startDate.setAttribute('max',makeArributeDate(dates[dates.length-1]));
+    endDate.setAttribute('max',makeArributeDate(dates[dates.length-1])); 
+    startDate.oninput=function(){
+        currStartDate=startDate.value;
+        
+        
+        endDate.setAttribute('min',currStartDate);
+        endDate.setAttribute('max',makeArributeDate(dates[dates.length-1])); 
+};
+endDate.onchange=function(){
+    currEndDate=endDate.value;
+    startDate.setAttribute('max',currEndDate);
+
+};
+settingsReset.addEventListener("click",function(){
+    currStartDate='2020-03-14';
+    currEndDate=makeArributeDate(dates[dates.length-1]);
+    currspeed=10;
+    console.log(currStartDate);
+});
+/*settingsDone.addEventListener("click",function(){
+    finalStartDate=currStartDate;
+    finalEndDate=currEndDate;
+
+});*/
+
+}
+

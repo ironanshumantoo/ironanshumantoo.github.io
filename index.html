@@ -74,13 +74,27 @@
         <div id="settingscontent">
             <div style='text-align: end;position:relative;'><img  id='closebtn'src='cross.svg'></div>
             <div id="settingsgrid">
-                <div style='text-align: center;margin:10px;'><span style='color:#EA00FF;' >Speed</span><input class='rangeselectors'id='speedslider'type='range'min='1' max='21' step="5" ></div>
+                <div style='text-align: center;margin:20px;'>
+                    <span class='settingstext' >Speed</span>
+                    <div style='padding-top: 30px;'><input class='rangeselectors'id='speedslider'type='range'min='1' max='21' step="5" ></div>
+                </div>
                 <div id='settingsrange'>
-                     <div style='text-align: center;'>
-                        <span class='settingsrangetext'>Range</span>
+                     <div style='text-align: center;padding: 10px;'>
+                        <span class='settingstext'>Range</span>
                      </div>
-                     <div style='text-align: center;'><span class='settingsrangetext'>Start Date:</span></div>
-                     <div style='text-align: center;'><span class='settingsrangetext'>End   Date:</span></div>
+                     <div style='text-align: center;padding:10px;'>
+                        <span class='settingstext'>Start Date:</span>
+                        <span><input type="date" id='startdate'min='2020-03-14'></span>
+                    </div>
+                     <div style='text-align: center;padding:10px;'>
+                       <span class='settingstext'>End Date:</span>
+                       <span><input type="date" id='enddate' ></span>
+                    </div>
+                    
+                </div>
+                <div style='text-align: center;margin-top: 10px;'>
+                    <img id="reset" src='reset.png'style='vertical-align:bottom; width=30px;height:30px;'>
+                    <span style="padding:10px;background:#EA00FF;margin-left: 30px; vertical-align: middle;">Done</span>
                 </div>
             </div>
         </div>

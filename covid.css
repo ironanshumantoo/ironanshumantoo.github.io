@@ -30,7 +30,7 @@ body{
 }
 #gototop{
     height:35px;width:35px;position:fixed;bottom:20px;right:20px;
-    background-image:linear-gradient(to bottom right,#1700E8,#9600E8);
+   background:white;
     opacity: 0.5;
     border-radius: 50%;
    z-index:100;
