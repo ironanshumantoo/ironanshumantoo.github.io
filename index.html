@@ -37,8 +37,10 @@
     <img class='sliderbtn'id='nextbtn'src='next.svg'>
 </div>
 <!--slider ends-->
-<div style='text-align: center;'>
-<span id="dateholder">date</span>
+<div style='text-align: center;display:grid;grid-template-columns: 10% 70% 20%;'>
+<div></div>
+    <div style='display:inline;'><span id="dateholder">date</span></div>
+<div id='settings'><img src='gear.svg' style='height:30px;width:30px;'></div>
 </div>
 <!--visual map-->
 <img id='mapimage' src='india.svg'>
@@ -65,7 +67,17 @@
 </div>
 </section>
 <!--map ends here-->
-
+<!--mapsettings-->
+<div id="settingsbackground">
+    <div id="mainsettings">
+        <div><div id="mainsettingsbackground"></div></div>
+        <div id="settingscontent">
+            <div style='text-align: end;position:relative;'><img  id='closebtn'src='cross.svg'></div>
+        </div>
+    </div>
+</div>
+<!--mapsettings ends here-->
+<!--your state data-->
 <section class="yourstategrid">
     <div class='subgrid'>
     

@@ -340,15 +340,21 @@ var xmulitplier=canvas2.width/611.85999;//to map different canvas sized
 var ymultiplier=canvas2.height/695.70178;
 var sliderNextButton=document.getElementById('nextbtn');
 var sliderPreviousButton=document.getElementById('prevbtn');
-
+var settingsCloseButton=document.getElementById('closebtn');
+var settingsButton=document.getElementById('settings');
 window.addEventListener('load',function(){
    // c2.drawImage(map,0,0,canvas2.width,canvas2.height);
     console.log('fininshed loading');
     //console.log(map.width,'map');
 });
-//drawmap
-
-
+//settings button
+settingsButton.addEventListener("click",function(){
+    $('#settingsbackground').css('display','block');
+});
+//settings close button
+settingsCloseButton.addEventListener("click",function(){
+    $('#settingsbackground').css('display','none');
+});
 
 //adding visual map data daily
 
