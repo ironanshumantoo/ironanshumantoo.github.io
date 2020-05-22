@@ -10,8 +10,8 @@ svg{
     pointer-events: auto;
 }
 #indiamap{
-    -webkit-filter: drop-shadow( 4px 4px 7px rgba(0, 0, 0, .7));
-  filter: drop-shadow( 4px 4px 7px rgba(0, 0, 0, .7));
+    -webkit-filter: drop-shadow( 4px 4px 30px rgba(0, 0, 0, .7));
+  filter: drop-shadow( 4px 4px 30px rgba(0, 0, 0, .7));
 }
 .sliderbtn{
     width:30px;
@@ -57,10 +57,11 @@ svg{
     cursor: pointer;
   }
   #dateholder{
-      margin:2px auto;
+      margin: auto;
       background-image:linear-gradient(to right,#1700E8,#9600E8);
       color: white;
       font-size: 6vw;
+   
       padding: 1vw 2vw;
       border-radius: 15px;
   }
@@ -82,3 +83,56 @@ svg{
         pointer-events: none;
         width:100%;
 }
+#settingsbackground{
+position: fixed;
+top:0px;
+left:0px;
+bottom:0px;
+width:100%;
+background-image: linear-gradient(to bottom right(#9600E8,#1700E8));
+backdrop-filter: blur(8px);
+ opacity: 0.9;
+height: 100%;
+z-index:101;
+}
+#mainsettings{
+    z-index: 102;
+    position: fixed;
+top:20vh;
+left:15vw;
+width:70%;
+
+height: 60vh;
+border-radius: 20px;
+text-align: end;
+}
+#mainsettingsbackground{
+    z-index: 103;
+    position: absolute;
+   background:white;
+   height:100%;
+   width: 100%;
+backdrop-filter: blur(8px);
+ opacity: 0.7;
+
+border-radius: 20px;
+}
+#settingscontent{
+    position: relative;
+   z-index: 105;
+        
+}
+#closebtn{
+     margin-right: 10px;
+     margin-top: 10px;
+     width:35px;
+     height:35px;
+             
+ }
+ #settings{
+     position: relative;
+     
+    
+     vertical-align: bottom;
+     
+ }
