@@ -115,8 +115,9 @@ text-align: end;
    width: 100%;
 backdrop-filter: blur(8px);
  opacity: 0.7;
-
 border-radius: 20px;
+
+
 }
 #settingscontent{
     position: relative;
@@ -130,10 +131,44 @@ border-radius: 20px;
      height:35px;
              
  }
+
  #settings{
      position: relative;
-     
-    
      vertical-align: bottom;
      
  }
+ #settingsgrid{
+     position: relative;
+     display: grid;
+     grid-template-rows: 50% 50%;
+    height:100%;
+    width:100%;
+ }
+ #settingsrange{
+     border-radius: 20px;
+     background-color: #EA00FF;
+     opacity:0.5;
+     height: 100%;
+     padding:10px;
+     
+ }
+ .settingsrangetext{
+    margin:auto;color:white;font-weight: 600;font-size: large;
+ }
+ #speedslider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: #1700E8;
+    cursor: pointer;
+  }
+  
+#speedslider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #1700E8;
+    cursor: pointer;
+  }
