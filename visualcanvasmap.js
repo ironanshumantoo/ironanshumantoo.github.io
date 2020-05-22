@@ -345,7 +345,10 @@ var settingsButton=document.getElementById('settings');
 var startDate=document.getElementById('startdate');
 var endDate=document.getElementById('enddate');
 var settingsReset=document.getElementById('reset');
-//var settingsDone=document.documentElement('done');
+var settingsDone=document.getElementById('done');
+var speedSlider=document.getElementById('speedslider');
+var finalSpeed=10,finalStartDate='2020-03-14',finalEndDate;
+var visualize=document.getElementById('visualize');
 
 window.addEventListener('load',function(){
    // c2.drawImage(map,0,0,canvas2.width,canvas2.height);
@@ -365,7 +368,7 @@ settingsCloseButton.addEventListener("click",function(){
 
 $.getJSON('https://api.covid19india.org/states_daily.json',function(data){
 
-    var  fpsInterval, startTime, now, then, elapsed,framesps=10,pos=0,datalength=data.states_daily.length;
+    
 //collecting data
 var confirmeddata=[],dates=[],dailyconfirmedcases=[];
 
@@ -402,7 +405,7 @@ console.log(dateSelector.value);
      confirmeddata[i][j]=Number(confirmeddata[i][j])+Number( confirmeddata[i-1][j]);
  }
  
-
+console.log(confirmeddata);
 //load map
 mapRefresh();
 
@@ -435,8 +438,26 @@ else
 $('#prevbtn').css('opacity','0.3');
 }
 //selecting date tange for visualization
-startEndDateRange(dates);
+
 //
+
+var  fpsInterval, startTime, now, then, elapsed,framesps=10,
+pos=0,stopPos=dates.length-1,datalength=data.states_daily.length;
+startEndDateRange(dates);
+
+visualize.addEventListener("click",function(){
+    framesps=finalSpeed;
+    console.log(finalSpeed);
+    console.log(finalStartDate);
+    stopPos=posFromdate(finalEndDate,dates);
+    pos=posFromdate(finalStartDate,dates);
+    console.log(pos,"and");
+    dateSelector.value=finalStartDate;
+    fpsInterval=1000/framesps;
+    running=true;
+    
+});
+
 
 function startAnimating(fps) {
     fpsInterval = 1000 / fps;
@@ -445,9 +466,10 @@ function startAnimating(fps) {
     animate();
 }
 function animate(){
-    /*if(pos==dates.length)
-    cancelAnimationFrame(animate);
-    else*/
+    //if(pos>stopPos)
+    //running=false;
+    //cancelAnimationFrame(animate);
+    //else
     requestAnimationFrame(animate);
     if(stateRankListReady)
     gotostate();
@@ -459,12 +481,10 @@ function animate(){
 
     if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
-       /* if(pos==dates.length-1)
-            $('#nextbtn').css('opacity','0.3');
-        */
+                  
 
           dateSelector.oninput=datechange;          
-        function datechange(){
+          function datechange(){
             running=false;
             var currpos=dateSelector.value;
 
@@ -519,12 +539,15 @@ function animate(){
        // c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
         dateholder.innerHTML=dates[pos];
         dateSelector.value=pos;
+        if(pos!=stopPos)
            racingNumbers(framesps,dailyconfirmedcases,pos,stateposition,dates);
         
+            if(pos==stopPos)
+            running=false;        
         
-        
-        if(pos<dates.length-1)
+        if(pos<stopPos)
         pos++; 
+        
     }
             
     }
@@ -685,6 +708,7 @@ function gotostate(){
 
 function startEndDateRange(dates){
     var currStartDate='2020-03-14',currEndDate=makeArributeDate(dates[dates.length-1]);
+    finalEndDate=currEndDate;
     var currspeed=10;
     function month(name){
         var monthmap=[ ['jan','01'],
@@ -698,7 +722,7 @@ function startEndDateRange(dates){
         ['sep','09'],
         ['oct','10'],
         ['nov','11'],
-        ['dec','12'],
+        ['dec','12']
 
         ];
         for(var i=0;i<monthmap.length;i++)
@@ -713,12 +737,18 @@ function startEndDateRange(dates){
         +month(date.substring(3,6).toLowerCase()) +"-"+date.substring(0,2);
     }
   
+
     startDate.setAttribute('max',makeArributeDate(dates[dates.length-1]));
     endDate.setAttribute('max',makeArributeDate(dates[dates.length-1])); 
-    startDate.oninput=function(){
+
+    speedSlider.oninput=function(){
+        currspeed=speedSlider.value;
+        console.log(currspeed);
+    };
+    
+
+startDate.oninput=function(){
         currStartDate=startDate.value;
-        
-        
         endDate.setAttribute('min',currStartDate);
         endDate.setAttribute('max',makeArributeDate(dates[dates.length-1])); 
 };
@@ -731,13 +761,59 @@ settingsReset.addEventListener("click",function(){
     currStartDate='2020-03-14';
     currEndDate=makeArributeDate(dates[dates.length-1]);
     currspeed=10;
+    startDate.value=currStartDate;
+    endDate.value=currEndDate;
+    speedSlider.value=10;
     console.log(currStartDate);
 });
-/*settingsDone.addEventListener("click",function(){
+settingsDone.addEventListener("click",function(){
     finalStartDate=currStartDate;
     finalEndDate=currEndDate;
+    finalSpeed=currspeed;
+    console.log('done'+finalSpeed);
+    $('#settingsbackground').css('display','none');
+});
 
-});*/
+}
+
+
+function posFromdate(invaliddate,dates){
+var len=invaliddate.length;
+var year=invaliddate.substring(2,4);
+var month;
+console.log(invaliddate+"invalid");
+var day=invaliddate.substring(len-2,len);
+
+var map=[ ['Jan','01'],
+        ['Feb','02'],
+        ['Mar','03'],
+        ['Apr','04'],
+        ['May','05'],
+        ['Jun','06'],
+        ['Jul','07'],
+        ['Aug','08'],
+        ['Sep','09'],
+        ['Oct','10'],
+        ['Nov','11'],
+        ['Dec','12']
+        ];
+        console.log();
+for(var i=0;i<12;i++)
+{
+    if(map[i][1]==invaliddate.substring(5,7))
+    {
+        month=map[i][0];
+    }
+}
+
+
+var validdate=day+"-"+month+"-"+year;
+
+for(var i=0;i<dates.length;i++)
+{
+    if(dates[i]==validdate)
+    return i;
+}
 
 }
 

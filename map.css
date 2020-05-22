@@ -103,7 +103,7 @@ top:20vh;
 left:15vw;
 width:70%;
 
-height: 60vh;
+height: 70%;
 border-radius: 20px;
 text-align: end;
 }
@@ -122,7 +122,8 @@ border-radius: 20px;
 #settingscontent{
     position: relative;
    z-index: 105;
-
+   overflow: auto;
+ height:100%;
 }
 #closebtn{
      margin-right: 10px;
@@ -142,11 +143,10 @@ border-radius: 20px;
      border-radius: 20px;
      background-color:white;
      overflow:auto;
-     height: 20vh;
+     height:auto;
      padding:5px;
      margin:auto;
-    
-     
+        
      
  }
  .settingstext{
