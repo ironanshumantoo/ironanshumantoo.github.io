@@ -85,6 +85,7 @@ svg{
 }
 #settingsbackground{
 position: fixed;
+display:none;
 top:0px;
 left:0px;
 bottom:0px;
