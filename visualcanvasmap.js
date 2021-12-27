@@ -366,7 +366,7 @@ settingsCloseButton.addEventListener("click",function(){
 
 //adding visual map data daily
 
-$.getJSON('https://api.covid19india.org/states_daily.json',function(data){
+$.getJSON('https://data.covid19india.org/states_daily.json',function(data){
 
     
 //collecting data
