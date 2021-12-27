@@ -210,7 +210,7 @@ body{
 }
 #openInMobile{
     display:block;
-    position: fixed;
+    top:50px;
     }
 #canvas{
     display:block;
