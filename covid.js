@@ -163,7 +163,7 @@ smallcovidImage.src='coronavirus.svg';
 $(document).ready(function(){
 
 
- $.getJSON('https://api.covid19india.org/data.json',function(data){
+ $.getJSON('https://data.covid19india.org/data.json',function(data){
      var statewise=data.statewise;
      //get location based
      var totalCases,totalRecovered,totalDeaths,totalActive,deltaTotalCases,deltaTotalRecovered,
