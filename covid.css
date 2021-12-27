@@ -66,6 +66,9 @@ body{
     background-image: linear-gradient(to bottom right,#1700E8,#9600E8);
    /* color: #ECF0F1;*/
 }
+#openInMobile{
+    display:none;
+    }
 .topbannertext{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: -webkit-linear-gradient(#F5F5F0, rgb(170, 170, 167));
@@ -205,6 +208,10 @@ body{
 #topbanner{
     display:none;
 }
+#openInMobile{
+    display:block;
+    position: fixed;
+    }
 #canvas{
     display:block;
     background:#052849; 
