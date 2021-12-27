@@ -324,7 +324,7 @@ $('#svgimage').html($('#svgimage').html());
 
 //adding visual map data daily
 
-$.getJSON('https://api.covid19india.org/states_daily.json',function(data){
+$.getJSON('https://data.covid19india.org/states_daily.json',function(data){
 
     var  fpsInterval, startTime, now, then, elapsed,speed=0,framesps=1,pos=0,datalength=data.states_daily.length;
 
