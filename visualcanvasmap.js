@@ -593,15 +593,64 @@ var  fps=10*frames,then,startTime,now,elapsed,p=1;
                     c2.strokeStyle='#050259';  
                     c2.fillStyle='white'; c2.lineWidth=1; 
                     if(pos==(dates.length-1))
-                    {c2.strokeText(dailyconfirmedcases[pos][j],nx,ny);
+                    {
+                        var quantisedPrint = dailyconfirmedcases[pos][j];
+                        var printstring ;
+                        if(quantisedPrint > 10000000)
+                               {
+                                   var num = quantisedPrint/10000000;
+                                   printstring = num.toFixed(2) +" Cr";
+                               }
+                               else if(quantisedPrint > 100000)
+                               {
+                                   var num = quantisedPrint/100000;
+                                   printstring = num.toFixed(2) +" Lakh";   
+                               }
+                               else if(quantisedPrint>1000)
+                               {
+                                   var num = quantisedPrint/1000;
+                                   printstring = num.toFixed(2)+" K";
+                               }
+                               else 
+                               printstring = quantisedPrint;
+                        c2.strokeText(dailyconfirmedcases[pos][j],nx,ny);
                         c2.fillText(dailyconfirmedcases[pos][j],nx,ny);
                     }
                     else{
                           var print=p*((Number(dailyconfirmedcases[pos+1][j])-Number(dailyconfirmedcases[pos][j]))/10);
                    
                  // console.log(p);  
-                 c2.strokeText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
-                     c2.fillText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
+                 if(print*10>20000)
+                 {
+                     c2.fillStyle='red';
+                 }
+                 else if(print*10>10000)
+                 {
+                     c2.fillStyle = 'yellow';
+                 }
+                 var quantisedPrint = Math.floor(Number(dailyconfirmedcases[pos][j]+print));
+                 var printstring ;
+                 if(quantisedPrint > 10000000)
+                        {
+                            var num = quantisedPrint/10000000;
+                            printstring = num.toFixed(2) +" Cr";
+                        }
+                        else if(quantisedPrint > 100000)
+                        {
+                            var num = quantisedPrint/100000;
+                            printstring = num.toFixed(2) +" Lakh";   
+                        }
+                        else if(quantisedPrint>1000)
+                        {
+                            var num = quantisedPrint/1000;
+                            printstring = num.toFixed(2)+" K";
+                        }
+                        else 
+                        printstring = quantisedPrint;
+                //  c2.strokeText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
+                //  c2.fillText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
+                c2.strokeText(printstring ,nx,ny);
+                     c2.fillText(printstring,nx,ny);
                     }
                 
             }
@@ -638,7 +687,9 @@ c2.font='bold 4vw Arial';
 c2.strokeStyle='#050259';  c2.lineWidth=1;  
 
 c2.fillStyle='white';
+// c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
 c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
+//  c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
  c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
 
 }
@@ -816,4 +867,3 @@ for(var i=0;i<dates.length;i++)
 }
 
 }
-
