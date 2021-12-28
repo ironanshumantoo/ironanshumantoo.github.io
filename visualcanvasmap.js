@@ -463,6 +463,15 @@ function startAnimating(fps) {
     fpsInterval = 1000 / fps;
     then = Date.now();
     startTime = then;
+    //rgb color codes to display heatmap in racing numbers
+    blue = [];
+    green = [];
+    for(var l=0;l<31;l++)
+    {
+        blue[l] = 255;
+        green[l] = 255;
+    }
+
     animate();
 }
 function animate(){
@@ -510,8 +519,9 @@ function animate(){
              c2.strokeStyle='#050259';    
              c2.lineWidth=2; 
             c2.fillStyle='white';
-            c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
-             c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
+            var printstring = finalPrint(dailyconfirmedcases[currpos][j]);
+            c2.strokeText(printstring,nx,ny);
+             c2.fillText(printstring,nx,ny);
             
             }
             c2.font='8vw Arial';
@@ -532,8 +542,9 @@ function animate(){
         c2.strokeStyle='#050259';  
         c2.lineWidth=2; 
         c2.fillStyle='white';
-        c2.strokeText(dailyconfirmedcases[pos][j],nx,ny);
-         c2.fillText(dailyconfirmedcases[pos][j],nx,ny);
+        var printstring = finalPrint(dailyconfirmedcases[pos][j])
+        c2.strokeText(printstring,nx,ny);
+         c2.fillText(printstring,nx,ny);
         
         }
        // c2.fillText(dates[pos],362*xmulitplier,98*ymultiplier);
@@ -591,62 +602,40 @@ var  fps=10*frames,then,startTime,now,elapsed,p=1;
                     var ny=xmulitplier*stateposition[j].y;
                     c2.font='bold 4vw Arial';
                     c2.strokeStyle='#050259';  
-                    c2.fillStyle='white'; c2.lineWidth=1; 
+                    var fillstring="rgba(255,"+green[j]+","+blue[j]+",1)";
+                    c2.fillStyle=fillstring; c2.lineWidth=1; 
                     if(pos==(dates.length-1))
                     {
-                        var quantisedPrint = dailyconfirmedcases[pos][j];
-                        var printstring ;
-                        if(quantisedPrint > 10000000)
-                               {
-                                   var num = quantisedPrint/10000000;
-                                   printstring = num.toFixed(2) +" Cr";
-                               }
-                               else if(quantisedPrint > 100000)
-                               {
-                                   var num = quantisedPrint/100000;
-                                   printstring = num.toFixed(2) +" Lakh";   
-                               }
-                               else if(quantisedPrint>1000)
-                               {
-                                   var num = quantisedPrint/1000;
-                                   printstring = num.toFixed(2)+" K";
-                               }
-                               else 
-                               printstring = quantisedPrint;
-                        c2.strokeText(dailyconfirmedcases[pos][j],nx,ny);
-                        c2.fillText(dailyconfirmedcases[pos][j],nx,ny);
+                        var printstring = finalPrint(dailyconfirmedcases[pos][j]);
+                        c2.strokeText(printstring ,nx,ny);
+                        c2.fillText(printstring,nx,ny);
                     }
                     else{
                           var print=p*((Number(dailyconfirmedcases[pos+1][j])-Number(dailyconfirmedcases[pos][j]))/10);
                    
                  // console.log(p);  
+                
+                //   console.log("inside",then);
                  if(print*10>20000)
                  {
-                     c2.fillStyle='red';
+                     if(green[j]>0 && blue[j] >0)
+                     {green[j] = green[j] - 10;
+                     blue[j]=blue[j]-10;
+                     }
                  }
-                 else if(print*10>10000)
-                 {
-                     c2.fillStyle = 'yellow';
-                 }
+                else if(print*10<20000)
+                {
+                    if(green[j]<255 && blue[j]<255)
+                    {
+                        green[j]= green[j]+5;
+                        blue[j] = blue[j]+5;
+                    }
+                }
+                fillstring="rgba(255,"+green[j]+","+blue[j]+",1)";
+                c2.fillStyle = fillstring;
+                // console.log(fillstring);
                  var quantisedPrint = Math.floor(Number(dailyconfirmedcases[pos][j]+print));
-                 var printstring ;
-                 if(quantisedPrint > 10000000)
-                        {
-                            var num = quantisedPrint/10000000;
-                            printstring = num.toFixed(2) +" Cr";
-                        }
-                        else if(quantisedPrint > 100000)
-                        {
-                            var num = quantisedPrint/100000;
-                            printstring = num.toFixed(2) +" Lakh";   
-                        }
-                        else if(quantisedPrint>1000)
-                        {
-                            var num = quantisedPrint/1000;
-                            printstring = num.toFixed(2)+" K";
-                        }
-                        else 
-                        printstring = quantisedPrint;
+                var printstring =finalPrint(quantisedPrint);
                 //  c2.strokeText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
                 //  c2.fillText(Math.floor(Number(dailyconfirmedcases[pos][j]+print)) ,nx,ny);
                 c2.strokeText(printstring ,nx,ny);
@@ -866,4 +855,29 @@ for(var i=0;i<dates.length;i++)
     return i;
 }
 
+}
+
+function finalPrint(quantisedPrint)
+{
+    
+    var printstring ;
+    if(quantisedPrint > 10000000)
+           {
+               var num = quantisedPrint/10000000;
+               printstring = num.toFixed(2) +" Cr";
+           }
+           else if(quantisedPrint > 100000)
+           {
+               var num = quantisedPrint/100000;
+               printstring = num.toFixed(2) +" Lakh";   
+           }
+           else if(quantisedPrint>1000)
+           {
+               var num = quantisedPrint/1000;
+               printstring = num.toFixed(2)+" K";
+           }
+           else 
+           printstring = quantisedPrint;
+
+           return printstring;
 }
