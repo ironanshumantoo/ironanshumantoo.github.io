@@ -209,8 +209,8 @@ body{
     display:none;
 }
 #openInMobile{
-    display:block;
-    top:50px;
+    display:inline;
+    
     }
 #canvas{
     display:block;
