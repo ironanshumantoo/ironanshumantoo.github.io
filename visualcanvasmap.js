@@ -676,10 +676,11 @@ c2.font='bold 4vw Arial';
 c2.strokeStyle='#050259';  c2.lineWidth=1;  
 
 c2.fillStyle='white';
-// c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
-c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
-//  c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
- c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
+    var finalstring = finalPrint(dailyconfirmedcases[currpos][j])
+        // c2.strokeText(dailyconfirmedcases[currpos][j],nx,ny);
+        c2.strokeText(finalstring, nx, ny);
+        //  c2.fillText(dailyconfirmedcases[currpos][j],nx,ny);
+        c2.fillText(finalstring, nx, ny);
 
 }
 c2.font='8vw Arial';
