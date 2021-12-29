@@ -540,7 +540,7 @@ function animate(){
         var ny=xmulitplier*stateposition[j].y;
         c2.font='bold 4vw Arial';
         c2.strokeStyle='#050259';  
-        c2.lineWidth=2; 
+        c2.lineWidth=1; 
         c2.fillStyle='white';
         var printstring = finalPrint(dailyconfirmedcases[pos][j])
         c2.strokeText(printstring,nx,ny);
