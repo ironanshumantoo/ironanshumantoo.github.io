@@ -195,7 +195,20 @@ th{
     font-size: 10px;
    
 }
-
+.div-visualize
+{
+    text-align: center;
+}
+#visualize
+{
+    align-self: center;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    font-size: large;
+    margin: 10px auto;
+    background-color: blueviolet;
+}
 @media only screen and (min-width: 700px){
 body{
     margin:0px;
